@@ -55,7 +55,7 @@ class CatalogParser(HTMLParser):
             if src and not src.startswith("data:"):
                 it = self._item(self._a)
                 if not it["image_url"]:
-                    it["image_url"] = urllib.parse.urljoin(BASE + "/", src)
+                    it["image_url"] = safe_url(urllib.parse.urljoin(BASE + "/", src))
                 it["alt"] = it["alt"] or ailists.clean(a.get("alt", ""))
 
     def handle_endtag(self, tag):
@@ -107,6 +107,11 @@ def parse_catalog(html: str, kind: str, min_items: int) -> list[dict]:
 
 # ------------------------------------------------------------------ images
 
+def safe_url(url: str) -> str:
+    """Percent-encode non-ASCII characters (iRacing file names can contain e.g. U+200F)."""
+    return urllib.parse.quote(url, safe="%/:=&?~#+!$,;'@()*[]")
+
+
 def image_ext(url: str) -> str:
     ext = Path(urllib.parse.unquote(urllib.parse.urlparse(url).path)).suffix.lower()
     return ext if ext in (".jpg", ".jpeg", ".png", ".webp") else ".jpg"
@@ -128,7 +133,7 @@ def download_images(rows: list[dict], kind: str, delay: float = 0.4, limit: int 
         name = f"{r['id']}__1" if kind == "cars" else r["id"]
         dest = folder / (name + image_ext(r["image_url"]))
         try:
-            req = urllib.request.Request(r["image_url"], headers={
+            req = urllib.request.Request(safe_url(r["image_url"]), headers={
                 "User-Agent": "Mozilla/5.0 (compatible; iracing-ai-lists/1.0)", "Referer": BASE + "/"})
             with urllib.request.urlopen(req, timeout=40) as resp:
                 ctype = resp.headers.get("Content-Type", "")

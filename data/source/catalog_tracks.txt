@@ -1,9 +1,8 @@
 # Snapshot of https://www.iracing.com/tracks/ (full catalog, AI and non-AI). Captured: 2026-10-29.
-# SEED: read through the fetch tool (a summarizing model), not parsed from raw HTML. update.py replaces it on its first run.
 # Columns: name | detail_url | image_url | labels
-Road America | https://www.iracing.com/tracks/road-america/ | https://s100.iracing.com/wp-content/uploads/2026/09/roadamerica-feature-350x197.jpg | NEW
-Mid-Ohio Sports Car Course | https://www.iracing.com/tracks/mid-ohio-sports-car-course/ | https://s100.iracing.com/wp-content/uploads/2026/09/midohio-feature-350x197.jpg | NEW
-The Milwaukee Mile | https://www.iracing.com/tracks/the-milwaukee-mile/ | https://s100.iracing.com/wp-content/uploads/2026/09/milwaukeemile-feature-350x197.jpg | NEW
+Road America | https://www.iracing.com/tracks/road-america/ | https://s100.iracing.com/wp-content/uploads/2026/09/roadamerica-feature-350x197.jpg |
+Mid-Ohio Sports Car Course | https://www.iracing.com/tracks/mid-ohio-sports-car-course/ | https://s100.iracing.com/wp-content/uploads/2026/09/midohio-feature-350x197.jpg |
+The Milwaukee Mile | https://www.iracing.com/tracks/the-milwaukee-mile/ | https://s100.iracing.com/wp-content/uploads/2026/09/milwaukeemile-feature-350x197.jpg |
 Qualcomm Circuit at Naval Base Coronado | https://www.iracing.com/tracks/qualcomm-circuit-naval-base-coronado/ | https://s100.iracing.com/wp-content/uploads/2026/06/qualcomm-circuit-coronado-feature-350x197.jpg |
 WeatherTech Raceway Laguna Seca | https://www.iracing.com/tracks/weathertech-raceway-laguna-seca/ | https://s100.iracing.com/wp-content/uploads/2025/09/lagunaseca-feature-350x197.jpg |
 St Petersburg Grand Prix | https://www.iracing.com/tracks/st-petersburg-grand-prix/ | https://s100.iracing.com/wp-content/uploads/2026/03/st-petersburg-feature-350x197.jpg |
@@ -32,13 +31,13 @@ Circuito de Jerez – Ángel Nieto | https://www.iracing.com/tracks/circuito-de-
 Virginia International Raceway | https://www.iracing.com/tracks/virginia-international-raceway/ | https://s100.iracing.com/wp-content/uploads/2022/12/virginiainternationalraceway-featured-350x197.jpg |
 Circuit de Nevers Magny-Cours | https://www.iracing.com/tracks/circuit-de-nevers-magny-cours/ | https://s100.iracing.com/wp-content/uploads/2022/12/magnycours-feature-350x197.jpg |
 Lincoln Speedway | https://www.iracing.com/tracks/lincoln-speedway/ | https://s100.iracing.com/wp-content/uploads/2022/12/lincolnspeedway-feature-350x197.jpg |
-Lucas Oil Speedway | https://www.iracing.com/tracks/lucas-oil-speedway/ | https://s100.iracing.com/wp-content/uploads/2022/08/lucasoilspeedway-feature-350x197.jpg | NEW
+Lucas Oil Speedway | https://www.iracing.com/tracks/lucas-oil-speedway/ | https://s100.iracing.com/wp-content/uploads/2022/08/lucasoilspeedway-feature-350x197.jpg |
 Motorsport Arena Oschersleben | https://www.iracing.com/tracks/motorsport-arena-oschersleben/ | https://s100.iracing.com/wp-content/uploads/2024/03/motorsportarenaoschersleben-feature-included-350x197.jpg |
 Rudskogen Motorsenter | https://www.iracing.com/tracks/rudskogen-motorsenter/ | https://s100.iracing.com/wp-content/uploads/2022/08/rudskogenmotorsenter-feature-350x197.jpg |
 Fuji International Speedway | https://www.iracing.com/tracks/fuji-international-speedway/ | https://s100.iracing.com/wp-content/uploads/2022/05/Fuji-International-Speedway-350x197.jpg |
 Port Royal Speedway | https://www.iracing.com/tracks/port-royal-speedway/ | https://s100.iracing.com/wp-content/uploads/2022/05/Port-Royal-Speedway-350x197.jpg |
 Sandown International Motor Raceway | https://www.iracing.com/tracks/sandown-international-motor-raceway/ | https://s100.iracing.com/wp-content/uploads/2022/05/Sandown-Motor-Raceway-350x197.jpg |
-Winton Motor Raceway | https://www.iracing.com/tracks/winton-motor-raceway/ | https://s100.iracing.com/wp-content/uploads/2024/03/Winton-Motor-Raceway-included-350x197.jpg | NEW
+Winton Motor Raceway | https://www.iracing.com/tracks/winton-motor-raceway/ | https://s100.iracing.com/wp-content/uploads/2024/03/Winton-Motor-Raceway-included-350x197.jpg |
 Federated Auto Parts Raceway at I-55 | https://www.iracing.com/tracks/federated-auto-parts-raceway-at-i-55/ | https://s100.iracing.com/wp-content/uploads/2022/03/federated-auto-parts-raceway-at-i-55-feature-350x197.jpg |
 LA Coliseum | https://www.iracing.com/tracks/la-coliseum/ | https://s100.iracing.com/wp-content/uploads/2022/01/LA-Coliseum-350x197.jpg |
 Bark River International Raceway | https://www.iracing.com/tracks/bark-river-international-raceway/ | https://s100.iracing.com/wp-content/uploads/2021/03/Bark-River-328x197.jpg |
@@ -139,7 +138,7 @@ Irwindale Speedway | https://www.iracing.com/tracks/irwindale-speedway/ | https:
 Sonoma Raceway | https://www.iracing.com/tracks/sonoma-raceway/ | https://s100.iracing.com/wp-content/uploads/2025/09/sonoma-feature-350x197.jpg |
 Michelin Raceway Road Atlanta | https://www.iracing.com/tracks/road-atlanta/ | https://s100.iracing.com/wp-content/uploads/2026/09/roadatlanta-feature-350x197.jpg |
 Summit Point Motorsports Park | https://www.iracing.com/tracks/summit-point-raceway/ | https://s100.iracing.com/wp-content/uploads/2012/10/summitpointraceway-feature-350x197.jpg |
-Barber Motorsports Park | https://www.iracing.com/tracks/barber-motorsports-park/ | https://s100.iracing.com/wp-content/uploads/2012/10/barbermotorsportspark-feature-350x197.jpg | NEW
+Barber Motorsports Park | https://www.iracing.com/tracks/barber-motorsports-park/ | https://s100.iracing.com/wp-content/uploads/2012/10/barbermotorsportspark-feature-350x197.jpg |
 Langley Speedway | https://www.iracing.com/tracks/langley/ | https://s100.iracing.com/wp-content/uploads/2012/10/included_LangleySpeedway-350x197.jpg |
 Circuit Zolder | https://www.iracing.com/tracks/circuit-zolder/ | https://s100.iracing.com/wp-content/uploads/2024/09/circuit-zolder-feature-350x197.jpg |
 Five Flags Speedway | https://www.iracing.com/tracks/five-flags-speedway/ | https://s100.iracing.com/wp-content/uploads/2015/03/Five-Flags.jpg |
@@ -150,4 +149,4 @@ Centripetal Circuit | https://www.iracing.com/tracks/centripetal-circuit/ | http
 Pocono Raceway – 2009 | https://www.iracing.com/tracks/pocono-raceway-2009/ | https://s100.iracing.com/wp-content/uploads/2020/05/legacy_PoconoRaceway_2009-350x197.jpg |
 Michigan International Speedway – 2009 | https://www.iracing.com/tracks/michigan-international-speedway-2/ | https://s100.iracing.com/wp-content/uploads/2020/05/legacy_MichiganInternationalSpeedway_2009-350x197.jpg |
 Long Beach Street Circuit | https://www.iracing.com/tracks/long-beach-street-circuit/ | https://s100.iracing.com/wp-content/uploads/2013/08/LongBeach-350x197.jpg |
-New Jersey Motorsports Park | https://www.iracing.com/tracks/new-jersey-motorsports-park/ | https://s100.iracing.com/wp-content/uploads/2013/10/newjerseymotorsportspark-sm-350x197.jpg | Tech Track
+New Jersey Motorsports Park | https://www.iracing.com/tracks/new-jersey-motorsports-park/ | https://s100.iracing.com/wp-content/uploads/2013/10/newjerseymotorsportspark-sm-350x197.jpg |

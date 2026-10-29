@@ -1,0 +1,8 @@
+nohup: ignoring input
+  images (cars): 185 downloaded, 2 failed
+    FAILED DIRTcar Limited Late Model: 'ascii' codec can't encode character '\u200f' in position 33: ordinal not in range(128)
+    FAILED DIRTcar Pro Late Model: 'ascii' codec can't encode character '\u200f' in position 33: ordinal not in range(128)
+  images (tracks): 157 downloaded, 0 failed
+active: {'ai': 139, 'total': 193} cars, {'ai': 135, 'total': 159} tracks | page modified: asphalt=Wed, Sep 9, 2026 at 10:49 AM, dirt=Wed, Sep 9, 2026 at 10:50 AM
+  no changes to the support-page lists
+  NOTE: cars with no class rule yet (add a rule or an override): Dallara DW12, Dallara IR05- Circa 2009, DIRTcar 305 Sprint Car, DIRTcar 358 Small Block Modified, DIRTcar 360 Sprint Car, FIA Cross Car, Ford Fiesta RS WRC, Ford GT-R, Lucas Oil Off Road Pro 2 Truck, Lucas Oil Off Road Pro 4 Truck, Lucas Oil Off-Road Pro 2 Lite Truck, Mazda MX-5 Roadster – 2010, NASCAR Chevrolet Impala SS COT circa 2013, NASCAR Chevrolet SS Cup Car, NASCAR Xfinity Series Chevrolet Camaro 2018, NASCAR Xfinity Series Chevrolet Impala SS – Circa 2011, NASCAR Xfinity Series Ford Mustang 2018, NASCAR Xfinity Series Toyota Camry 2018, Porsche Mission R, Pro Mazda, RUF RT 12 R, Sprint Car, Subaru WRX STI, Super DIRTcar Big Block Modified, UMP Modified, USAC 360 Sprint Car, USAC 410 Sprint Car, V8 Supercar Ford Falcon – 2009, V8 Supercar Ford FG Falcon – 2014, V8 Supercar Holden VF Commodore – 2014, VW Beetle, VW Beetle Lite, World of Outlaws 410 Sprint Car

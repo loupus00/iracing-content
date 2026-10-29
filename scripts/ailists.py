@@ -224,7 +224,7 @@ def load_csv(path: Path, kind: str) -> list[dict]:
         return []
     with open(path, newline="", encoding="utf-8-sig") as f:
         rows = list(csv.DictReader(f))
-    out = [{k: r.get(k, "") or "" for k in FIELDS[kind]} | {"id": r["id"]} for r in rows]
+    out = [{k: r.get(k, "") or "" for k in FIELDS[kind]} for r in rows]
     for r in out:  # files written before the full-catalog change had only AI rows
         if not r["ai_enabled"]:
             r["ai_enabled"] = "yes" if r["status"] == "active" else "no"

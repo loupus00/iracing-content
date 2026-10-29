@@ -1,7 +1,6 @@
 # Snapshot of https://www.iracing.com/cars/ (full catalog, AI and non-AI). Captured: 2026-10-29.
-# SEED: read through the fetch tool (a summarizing model), not parsed from raw HTML. update.py replaces it on its first run.
 # Columns: category | name | detail_url | image_url | labels
-NASCAR | NASCAR Gen 4 Grand National | https://www.iracing.com/cars/nascar-gen-4-grand-national/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-gen-4-grand-national-feature-1024x576.jpg | NEW
+NASCAR | NASCAR Gen 4 Grand National | https://www.iracing.com/cars/nascar-gen-4-grand-national/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-gen-4-grand-national-feature-1024x576.jpg |
 NASCAR | Next Gen NASCAR Cup Series Chevrolet Camaro ZL1 | https://www.iracing.com/cars/next-gen-nascar-cup-series-chevrolet-camaro/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-nextgen-camaro2026-feature-1024x576.jpg |
 NASCAR | Next Gen NASCAR Cup Series Ford Mustang | https://www.iracing.com/cars/next-gen-nascar-cup-series-ford-mustang/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-nextgen-fordmustangdarkhorse-feature-1024x576.jpg |
 NASCAR | Next Gen NASCAR Cup Series Toyota Camry | https://www.iracing.com/cars/next-gen-nascar-cup-series-toyota-camry/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-nextgen-toyotacamry-feature-1024x576.jpg |
@@ -45,9 +44,9 @@ NASCAR | NASCAR Xfinity Series Chevrolet Impala SS – Circa 2011 | https://www.
 NASCAR | NASCAR Truck Chevrolet Silverado – 2008 | https://www.iracing.com/cars/nascar-truck-chevrolet-silverado-2008/ | https://s100.iracing.com/wp-content/uploads/2020/05/included_ChevroletSilverado2008_legacy-1024x576.jpg |
 NASCAR | C&R Racing Silver Crown Car | https://www.iracing.com/cars/cr-racing-silver-crown-car/ | https://s100.iracing.com/wp-content/uploads/2012/11/Silver-Crown-1024x576.jpg |
 NASCAR | Sprint Car | https://www.iracing.com/cars/sprint-car/ | https://s100.iracing.com/wp-content/uploads/2026/09/sprint-car-feature-1024x576.jpg |
-Sports Car | Caterham 420R | https://www.iracing.com/cars/caterham-420r/ | https://s100.iracing.com/wp-content/uploads/2026/09/caterham-420r-feature-1024x576.jpg | NEW
-Sports Car | Caterham Academy | https://www.iracing.com/cars/caterham-academy/ | https://s100.iracing.com/wp-content/uploads/2026/09/caterham-academy-feature-1024x576.jpg | NEW
-Sports Car | Aston Martin Vantage GT3 EVO | https://www.iracing.com/cars/aston-martin-vantage-gt3-evo/ | https://s100.iracing.com/wp-content/uploads/2026/09/aston-martin-vantagevogt3-feature-1024x576.jpg |
+Sports Car | Caterham 420R | https://www.iracing.com/cars/caterham-420r/ | https://s100.iracing.com/wp-content/uploads/2026/09/caterham-420r-feature-1024x576.jpg |
+Sports Car | Caterham Academy | https://www.iracing.com/cars/caterham-academy/ | https://s100.iracing.com/wp-content/uploads/2026/09/caterham-academy-feature-1024x576.jpg |
+Sports Car | Aston Martin Vantage GT3 EVO | https://www.iracing.com/cars/aston-martin-vantage-gt3-evo/ | https://s100.iracing.com/wp-content/uploads/2026/09/aston-martin-vantageevogt3-feature-1024x576.jpg |
 Sports Car | Ford Mustang GT4 | https://www.iracing.com/cars/ford-mustang-gt4/ | https://s100.iracing.com/wp-content/uploads/2026/03/ford-mustang-gt4-feature-1024x576.jpg |
 Sports Car | Acura NSX GT3 EVO 22 | https://www.iracing.com/cars/acura-nsx-gt3-evo22/ | https://s100.iracing.com/wp-content/uploads/2024/12/acura-nsx-gt3-evo22-feature-1024x576.jpg |
 Sports Car | Audi R8 LMS EVO II GT3 | https://www.iracing.com/cars/audi-r8-lms-evo-ii-gt3/ | https://s100.iracing.com/wp-content/uploads/2023/12/Audi-R8-LMS-EVO-II-GT3_feature-1024x576.jpg |
@@ -115,7 +114,7 @@ Sports Car | Pontiac Solstice Club Sport | https://www.iracing.com/cars/pontiac-
 Sports Car | Pontiac Solstice Club Sport – Rookie | https://www.iracing.com/cars/pontiac-solstice-club-sport-rookie/ | https://s100.iracing.com/wp-content/uploads/2012/10/PontiacSolstice_Rookie-feature-1024x576.jpg |
 Sports Car | Mazda MX-5 Cup – 2010 | https://www.iracing.com/cars/mazda-mx-5-cup-2010/ | https://s100.iracing.com/wp-content/uploads/2026/09/mazda-mx-5-cup-2010-feature-1024x576.jpg |
 Sports Car | Mazda MX-5 Roadster – 2010 | https://www.iracing.com/cars/mazda-mx-5-roadster-2010/ | https://s100.iracing.com/wp-content/uploads/2025/07/mazda-mx-5-roadster-2010-feature-1024x576.jpg |
-Prototypes | Aston Martin Valkyrie AMR-LMH | https://www.iracing.com/cars/aston-martin-valkyrie-amr-lmh/ | https://s100.iracing.com/wp-content/uploads/2026/09/aston-martin-valkyrie-feature-1024x576.jpg | NEW
+Prototypes | Aston Martin Valkyrie AMR-LMH | https://www.iracing.com/cars/aston-martin-valkyrie-amr-lmh/ | https://s100.iracing.com/wp-content/uploads/2026/09/aston-martin-valkyrie-feature-1024x576.jpg |
 Prototypes | BMW M Hybrid V8 Evo | https://www.iracing.com/cars/bmw-m-hybrid-v8-evo/ | https://s100.iracing.com/wp-content/uploads/2026/06/bmw-m-hybrid-v8-evo-feature-1024x576.jpg |
 Prototypes | Ferrari 499P | https://www.iracing.com/cars/ferrari-499p/ | https://s100.iracing.com/wp-content/uploads/2024/12/ferrari-499p-feature-1024x576.jpg |
 Prototypes | Acura ARX-06 GTP | https://www.iracing.com/cars/acura-arx-06-gtp/ | https://s100.iracing.com/wp-content/uploads/2025/12/acura-arx-06-feature-1024x576.jpg |
