@@ -1,0 +1,190 @@
+# Snapshot of https://www.iracing.com/cars/ (full catalog, AI and non-AI). Captured: 2026-10-29.
+# SEED: read through the fetch tool (a summarizing model), not parsed from raw HTML. update.py replaces it on its first run.
+# Columns: category | name | detail_url | image_url | labels
+NASCAR | NASCAR Gen 4 Grand National | https://www.iracing.com/cars/nascar-gen-4-grand-national/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-gen-4-grand-national-feature-1024x576.jpg | NEW
+NASCAR | Next Gen NASCAR Cup Series Chevrolet Camaro ZL1 | https://www.iracing.com/cars/next-gen-nascar-cup-series-chevrolet-camaro/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-nextgen-camaro2026-feature-1024x576.jpg |
+NASCAR | Next Gen NASCAR Cup Series Ford Mustang | https://www.iracing.com/cars/next-gen-nascar-cup-series-ford-mustang/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-nextgen-fordmustangdarkhorse-feature-1024x576.jpg |
+NASCAR | Next Gen NASCAR Cup Series Toyota Camry | https://www.iracing.com/cars/next-gen-nascar-cup-series-toyota-camry/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-nextgen-toyotacamry-feature-1024x576.jpg |
+NASCAR | NASCAR O’Reilly Chevrolet Camaro | https://www.iracing.com/cars/nascar-oreilly-chevrolet-camaro/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-oreilly-chevroletcamaro-feature-1024x576.jpg |
+NASCAR | NASCAR O’Reilly Ford Mustang | https://www.iracing.com/cars/nascar-oreilly-ford-mustang/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-oreilly-fordmustang-feature-1024x576.jpg |
+NASCAR | NASCAR O’Reilly Toyota Supra | https://www.iracing.com/cars/nascar-oreilly-toyota-supra/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-oreilly-toyotasupra-feature-1024x576.jpg |
+NASCAR | NASCAR Truck RAM | https://www.iracing.com/cars/nascar-truck-ram/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-truck-ram-feature-1024x576.jpg |
+NASCAR | NASCAR Truck Series Chevrolet Silverado | https://www.iracing.com/cars/nascar-truck-series-chevrolet-silverado/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-truck-silverado-feature-1024x576.jpg |
+NASCAR | NASCAR Truck Series Ford F-150 | https://www.iracing.com/cars/nascar-truck-series-ford-f-150/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-truck-f150-feature-1024x576.jpg |
+NASCAR | NASCAR Truck Series Toyota Tundra TRD | https://www.iracing.com/cars/nascar-truck-series-toyota-tundra/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-truck-toyotatundratrd-feature-1024x576.jpg |
+NASCAR | ARCA Chevrolet SS | https://www.iracing.com/cars/arca-chevrolet-ss/ | https://s100.iracing.com/wp-content/uploads/2026/03/arca-chevy-ss-feature-1024x576.jpg |
+NASCAR | ARCA Ford Mustang | https://www.iracing.com/cars/arca-ford-mustang/ | https://s100.iracing.com/wp-content/uploads/2026/03/arca-ford-mustang-feature-1024x576.jpg |
+NASCAR | ARCA Toyota Camry | https://www.iracing.com/cars/arca-toyota-camry/ | https://s100.iracing.com/wp-content/uploads/2025/03/arca-toyota-camry-feature-1024x576.jpg |
+NASCAR | NASCAR Whelen Tour Modified | https://www.iracing.com/cars/nascar-whelen-tour-modified/ | https://s100.iracing.com/wp-content/uploads/2019/05/Whelen-Mod-tile-1024x576.jpg |
+NASCAR | SK Modified Car | https://www.iracing.com/cars/sk-modified/ | https://s100.iracing.com/wp-content/uploads/2012/11/SK-Mod-tile-1024x576.jpg |
+NASCAR | Gen 4 Chevrolet Monte Carlo – 2003 | https://www.iracing.com/cars/gen4-chevrolet-monte-carlo-2003/ | https://s100.iracing.com/wp-content/uploads/2026/03/nascargen4chevy-feature-1024x576.jpg |
+NASCAR | Gen 4 Ford Taurus – 2003 | https://www.iracing.com/cars/gen4-ford-taurus-2003/ | https://s100.iracing.com/wp-content/uploads/2026/03/nascargen4ford-feature-1024x576.jpg |
+NASCAR | NASCAR Legends Buick LeSabre – 1987 | https://www.iracing.com/cars/nascar-1987-buick-lesabre/ | https://s100.iracing.com/wp-content/uploads/2022/03/NASCAR_Buick_LeSabre_1987-1024x576.jpg |
+NASCAR | NASCAR Legends Ford Thunderbird – 1987 | https://www.iracing.com/cars/nascar-1987-ford-thunderbird/ | https://s100.iracing.com/wp-content/uploads/2020/06/Ford_Thunderbird_1987-1024x576.jpg |
+NASCAR | NASCAR Legends Pontiac Grand Prix – 1987 | https://www.iracing.com/cars/nascar-1987-pontiac-grand-prix/ | https://s100.iracing.com/wp-content/uploads/2023/09/87PontiacGrandPrix-feature-1024x576.jpg |
+NASCAR | NASCAR Legends Chevrolet Monte Carlo – 1987 | https://www.iracing.com/cars/nascar-1987-chevrolet-monte-carlo/ | https://s100.iracing.com/wp-content/uploads/2020/06/Chevrolet_MonteCarlo_1987-1024x576.jpg |
+NASCAR | Late Model Stock | https://www.iracing.com/cars/late-model-stock/ | https://s100.iracing.com/wp-content/uploads/2023/03/latemodelstock-feature-1024x576.jpg |
+NASCAR | Super Late Model | https://www.iracing.com/cars/super-late-model/ | https://s100.iracing.com/wp-content/uploads/2013/08/Super-Late-Model-3-1024x576.jpg |
+NASCAR | SRX | https://www.iracing.com/cars/srx/ | https://s100.iracing.com/wp-content/uploads/2024/03/SRX_feature-1024x576.jpg |
+NASCAR | Street Stock – Panther | https://www.iracing.com/cars/street-stock-panther/ | https://s100.iracing.com/wp-content/uploads/2020/05/included_StreetStock-1024x576.jpg |
+NASCAR | Street Stock – Eagle | https://www.iracing.com/cars/street-stock-eagle/ | https://s100.iracing.com/wp-content/uploads/2024/05/street-stock-eagle-feature-1024x576.jpg |
+NASCAR | Street Stock – Casino | https://www.iracing.com/cars/street-stock-casino/ | https://s100.iracing.com/wp-content/uploads/2024/05/street-stock-casino-feature-1024x576.jpg |
+NASCAR | Mini Stock | https://www.iracing.com/cars/mini-stock/ | https://s100.iracing.com/wp-content/uploads/2024/09/mini-stock-asphalt-feature-1024x576.jpg |
+NASCAR | Legends Ford ’34 Coupe | https://www.iracing.com/cars/ford-34-coupe/ | https://s100.iracing.com/wp-content/uploads/2012/10/legends-asphalt-feature-1024x576.jpg |
+NASCAR | NASCAR Cup Series Chevrolet Camaro ZL1 | https://www.iracing.com/cars/nascar-monster-energy-cup-chevrolet-camaro-zl1/ | https://s100.iracing.com/wp-content/uploads/2018/08/NASCAR-Cup-Chevrolet-Camaro-ZL1-1024x576.jpg |
+NASCAR | NASCAR Cup Series Ford Mustang | https://www.iracing.com/cars/nascar-monster-energy-cup-ford-mustang/ | https://s100.iracing.com/wp-content/uploads/2019/05/NASCAR-Cup-Ford-Mustang-1024x576.jpg |
+NASCAR | NASCAR Cup Series Ford Fusion | https://www.iracing.com/cars/nascar-cup-series-ford-fusion/ | https://s100.iracing.com/wp-content/uploads/2013/01/NASCAR-Cup-Ford-Fusion-Legacy-1024x576.jpg |
+NASCAR | NASCAR Cup Series Toyota Camry | https://www.iracing.com/cars/toyota-camry-gen6/ | https://s100.iracing.com/wp-content/uploads/2014/04/NASCAR-Cup-Toyota-Camry-1-1024x576.jpg |
+NASCAR | NASCAR Chevrolet SS Cup Car | https://www.iracing.com/cars/chevrolet-ss/ | https://s100.iracing.com/wp-content/uploads/2020/05/legacy_NASCARCupChevroletSS_2013-1024x576.jpg |
+NASCAR | NASCAR Gen 4 Cup | https://www.iracing.com/cars/nascar-gen-4-cup/ | https://s100.iracing.com/wp-content/uploads/2026/09/nascar-gen-4-cup-feature-1024x576.jpg |
+NASCAR | NASCAR Xfinity Series Toyota Camry 2018 | https://www.iracing.com/cars/nascar-xfinity-toyota-camry/ | https://s100.iracing.com/wp-content/uploads/2020/05/legacy_NASCARXfinityToyotaCamry_2015-1024x576.jpg |
+NASCAR | NASCAR Xfinity Series Chevrolet Camaro 2018 | https://www.iracing.com/cars/nascar-xfinity-series-chevrolet-camaro-2018/ | https://s100.iracing.com/wp-content/uploads/2020/05/legacy_NASCARXfinityChevroletCamaro_2014-1024x576.jpg |
+NASCAR | NASCAR Xfinity Series Ford Mustang 2018 | https://www.iracing.com/cars/nascar-xfinity-series-ford-mustang-2018/ | https://s100.iracing.com/wp-content/uploads/2020/05/legacy_NASCARXfinityFordMustang_2016-1024x576.jpg |
+NASCAR | NASCAR Chevrolet Impala SS COT circa 2013 | https://www.iracing.com/cars/chevrolet-impala-ss-sprint-cup-series/ | https://s100.iracing.com/wp-content/uploads/2012/11/NASCAR-Chevrolet-Impala-SS-COT_Feature--1024x576.jpg |
+NASCAR | NASCAR Xfinity Series Chevrolet Impala SS – Circa 2011 | https://www.iracing.com/cars/chevrolet-impala-ss-nationwide-series/ | https://s100.iracing.com/wp-content/uploads/2020/05/legacy_NASCARNationwideChevroletImpala_2012-1024x576.jpg |
+NASCAR | NASCAR Truck Chevrolet Silverado – 2008 | https://www.iracing.com/cars/nascar-truck-chevrolet-silverado-2008/ | https://s100.iracing.com/wp-content/uploads/2020/05/included_ChevroletSilverado2008_legacy-1024x576.jpg |
+NASCAR | C&R Racing Silver Crown Car | https://www.iracing.com/cars/cr-racing-silver-crown-car/ | https://s100.iracing.com/wp-content/uploads/2012/11/Silver-Crown-1024x576.jpg |
+NASCAR | Sprint Car | https://www.iracing.com/cars/sprint-car/ | https://s100.iracing.com/wp-content/uploads/2026/09/sprint-car-feature-1024x576.jpg |
+Sports Car | Caterham 420R | https://www.iracing.com/cars/caterham-420r/ | https://s100.iracing.com/wp-content/uploads/2026/09/caterham-420r-feature-1024x576.jpg | NEW
+Sports Car | Caterham Academy | https://www.iracing.com/cars/caterham-academy/ | https://s100.iracing.com/wp-content/uploads/2026/09/caterham-academy-feature-1024x576.jpg | NEW
+Sports Car | Aston Martin Vantage GT3 EVO | https://www.iracing.com/cars/aston-martin-vantage-gt3-evo/ | https://s100.iracing.com/wp-content/uploads/2026/09/aston-martin-vantagevogt3-feature-1024x576.jpg |
+Sports Car | Ford Mustang GT4 | https://www.iracing.com/cars/ford-mustang-gt4/ | https://s100.iracing.com/wp-content/uploads/2026/03/ford-mustang-gt4-feature-1024x576.jpg |
+Sports Car | Acura NSX GT3 EVO 22 | https://www.iracing.com/cars/acura-nsx-gt3-evo22/ | https://s100.iracing.com/wp-content/uploads/2024/12/acura-nsx-gt3-evo22-feature-1024x576.jpg |
+Sports Car | Audi R8 LMS EVO II GT3 | https://www.iracing.com/cars/audi-r8-lms-evo-ii-gt3/ | https://s100.iracing.com/wp-content/uploads/2023/12/Audi-R8-LMS-EVO-II-GT3_feature-1024x576.jpg |
+Sports Car | BMW M4 GT3 EVO | https://www.iracing.com/cars/bmw-m4-gt3-evo/ | https://s100.iracing.com/wp-content/uploads/2020/12/BMW-M4-GT3-Evo-feature-1024x576.jpg |
+Sports Car | Chevrolet Corvette Z06 GT3.R | https://www.iracing.com/cars/chevrolet-corvette-z06-gt3r/ | https://s100.iracing.com/wp-content/uploads/2024/06/corvette-z06-gt3.r-feature-1024x576.jpg |
+Sports Car | Ferrari 296 GT3 | https://www.iracing.com/cars/ferrari-296-gt3/ | https://s100.iracing.com/wp-content/uploads/2023/09/Ferrari296GT3-feature-1-1024x576.jpg |
+Sports Car | Ford Mustang GT3 | https://www.iracing.com/cars/ford-mustang-gt3/ | https://s100.iracing.com/wp-content/uploads/2026/03/ford-mustang-gt3-feature-1024x576.jpg |
+Sports Car | Lamborghini Huracán GT3 EVO | https://www.iracing.com/cars/lamborghini-huracan-gt3-evo/ | https://s100.iracing.com/wp-content/uploads/2020/12/LamborghiniHuracanGT3EVO-1024x576.jpg |
+Sports Car | McLaren 720S GT3 EVO | https://www.iracing.com/cars/mclaren-720s-gt3-evo/ | https://s100.iracing.com/wp-content/uploads/2026/09/mclaren-720s-gt3-feature-1024x576.jpg |
+Sports Car | Mercedes-AMG GT3 2020 | https://www.iracing.com/cars/mercedes-amg-gt3-2020/ | https://s100.iracing.com/wp-content/uploads/2022/05/Mercedes-AMG-GT3-2020-1024x576.jpg |
+Sports Car | Porsche 911 GT3 R (992) | https://www.iracing.com/cars/porsche-911-gt3-r-992/ | https://s100.iracing.com/wp-content/uploads/2023/06/porsche992rgt3-feature-1-1024x576.jpg |
+Sports Car | Ferrari 296 Challenge | https://www.iracing.com/cars/ferrari-296-challenge/ | https://s100.iracing.com/wp-content/uploads/2025/06/Ferrari296Challenge-feature-1024x576.jpg |
+Sports Car | Porsche 911 Cup (992.2) | https://www.iracing.com/cars/porsche-911-cup-992-2/ | https://s100.iracing.com/wp-content/uploads/2025/12/porsche-cup992-2-feature-1024x576.jpg |
+Sports Car | Porsche 911 Cup (992.1) | https://www.iracing.com/cars/porsche-911-gt3-cup-992/ | https://s100.iracing.com/wp-content/uploads/2021/08/porsche992Cup-feature-1024x576.jpg |
+Sports Car | Euro NASCAR V8GP | https://www.iracing.com/cars/euro-nascar/ | https://s100.iracing.com/wp-content/uploads/2026/06/euro-nascar-v8gp-feature-1024x576.jpg |
+Sports Car | Supercars Chevrolet Camaro Gen 3 | https://www.iracing.com/cars/supercars-chevrolet-camaro-gen3/ | https://s100.iracing.com/wp-content/uploads/2026/03/supercars-camaro-gen3-feature-1024x576.jpg |
+Sports Car | Supercars Ford Mustang Gen 3 | https://www.iracing.com/cars/supercars-ford-mustang-gen3/ | https://s100.iracing.com/wp-content/uploads/2026/03/supercars-mustang-gen3-feature-1024x576.jpg |
+Sports Car | Aston Martin Vantage GT4 | https://www.iracing.com/cars/aston-martin-vantage-gt4/ | https://s100.iracing.com/wp-content/uploads/2026/09/aston-martin-vantagegt4-feature-1024x576.jpg |
+Sports Car | BMW M4 G82 GT4 Evo | https://www.iracing.com/cars/bmw-m4-g82-gt4-evo/ | https://s100.iracing.com/wp-content/uploads/2024/09/bmw-m4-g82-gt4-feature-1024x576.jpg |
+Sports Car | McLaren 570S GT4 | https://www.iracing.com/cars/mclaren-570s-gt4/ | https://s100.iracing.com/wp-content/uploads/2026/09/mclaren-570s-gt4-feature-1024x576.jpg |
+Sports Car | Mercedes-AMG GT4 | https://www.iracing.com/cars/mercedes-amg-gt4/ | https://s100.iracing.com/wp-content/uploads/2022/05/Mercedes-AMG-GT4-1024x576.jpg |
+Sports Car | Porsche 718 Cayman GT4 Clubsport | https://www.iracing.com/cars/porsche-718-cayman/ | https://s100.iracing.com/wp-content/uploads/2020/04/Porsche-718-Cayman-GT4-Clubsport-feature-1024x576.jpg |
+Sports Car | Audi RS3 LMS Gen2 TCR | https://www.iracing.com/cars/audi-rs3-lms-gen2-tcr/ | https://s100.iracing.com/wp-content/uploads/2026/03/audi-rs3-lms-feature-1024x576.jpg |
+Sports Car | Audi RS 3 LMS TCR | https://www.iracing.com/cars/audi-rs-3-lms-tcr/ | https://s100.iracing.com/wp-content/uploads/2019/09/Audi-RS3-LMS-GT4-1024x576.jpg |
+Sports Car | Hyundai Elantra N TCR | https://www.iracing.com/cars/hyundai-elantra-n-tcr/ | https://s100.iracing.com/wp-content/uploads/2021/12/hyundai-tile-1024x576.jpg |
+Sports Car | Hyundai Veloster N TCR | https://www.iracing.com/cars/hyundai-veloster-n-tcr/ | https://s100.iracing.com/wp-content/uploads/2022/03/Hyundai-Elantra-N-1024x576.jpg |
+Sports Car | Honda Civic Type R TCR | https://www.iracing.com/cars/honda-civic-type-r-tcr/ | https://s100.iracing.com/wp-content/uploads/2021/12/honda-tile-1024x576.jpg |
+Sports Car | BMW M2 Racing (G87) | https://www.iracing.com/cars/bmw-m2-racing-g87/ | https://s100.iracing.com/wp-content/uploads/2026/06/bmw-m2-racing-g87-feature-1024x576.jpg |
+Sports Car | BMW M2 CS Racing | https://www.iracing.com/cars/bmw-m2-cs-racing/ | https://s100.iracing.com/wp-content/uploads/2024/12/bmw-m2-csr-feature-1024x576.jpg |
+Sports Car | Renault Clio R.S. V | https://www.iracing.com/cars/renault-clio-rs-v/ | https://s100.iracing.com/wp-content/uploads/2023/03/renaultclio-feature-1024x576.jpg |
+Sports Car | Toyota GR86 | https://www.iracing.com/cars/toyota-gr86/ | https://s100.iracing.com/wp-content/uploads/2022/12/Toyota-GR86-1024x576.jpg |
+Sports Car | Global Mazda MX-5 Cup | https://www.iracing.com/cars/global-mazda-mx-5-cup/ | https://s100.iracing.com/wp-content/uploads/2026/09/global-mazda-mx-5-feature-1-1024x576.jpg |
+Sports Car | Stockcar Brasil Chevrolet Cruze | https://www.iracing.com/cars/stockcar-brasil-chevrolet-cruze/ | https://s100.iracing.com/wp-content/uploads/2022/03/Stock-Car-Brasil-Chevrolet-Cruze-1-1024x576.jpg |
+Sports Car | Stockcar Brasil Toyota Corolla | https://www.iracing.com/cars/stockcar-brasil-toyota-corolla/ | https://s100.iracing.com/wp-content/uploads/2022/03/Stock-Car-Brasil-Toyota-Corolla-1-1024x576.jpg |
+Sports Car | BMW M8 GTE | https://www.iracing.com/cars/bmw-m8-gte/ | https://s100.iracing.com/wp-content/uploads/2019/02/BMW-M8-GT3-1024x576.jpg |
+Sports Car | Chevrolet Corvette C8.R | https://www.iracing.com/cars/chevrolet-corvette-c8-r/ | https://s100.iracing.com/wp-content/uploads/2020/09/Chevrolet_Corvette_C8R-1024x576.jpg |
+Sports Car | Ferrari 488 GTE | https://www.iracing.com/cars/ferrari-488-gte/ | https://s100.iracing.com/wp-content/uploads/2017/06/Ferrari-488-GTE-2-1024x576.jpg |
+Sports Car | Ford GT GTE | https://www.iracing.com/cars/ford-gt-gte/ | https://s100.iracing.com/wp-content/uploads/2017/06/Ford-GT-2017-1024x576.jpg |
+Sports Car | Porsche 911 RSR | https://www.iracing.com/cars/porsche-911-rsr/ | https://s100.iracing.com/wp-content/uploads/2018/06/Porsche-991-RSR-GTE-feature-1024x576.jpg |
+Sports Car | Porsche Mission R | https://www.iracing.com/cars/porsche-mission-r/ | https://s100.iracing.com/wp-content/uploads/2022/09/Porsche-Mission-R-1024x576.jpg |
+Sports Car | Chevrolet Corvette C6.R | https://www.iracing.com/cars/chevrolet-corvette-c6-r/ | https://s100.iracing.com/wp-content/uploads/2012/11/Corvette-C6R-1024x576.jpg |
+Sports Car | Aston Martin DBR9 GT1 | https://www.iracing.com/cars/aston-martin-gt1/ | https://s100.iracing.com/wp-content/uploads/2026/09/aston-martin-dbr9-feature-1024x576.jpg |
+Sports Car | Cadillac CTS-V | https://www.iracing.com/cars/cadillac-cts-v/ | https://s100.iracing.com/wp-content/uploads/2020/05/included_CadillacCTS-V-1024x576.jpg |
+Sports Car | Kia Optima | https://www.iracing.com/cars/kia-optima/ | https://s100.iracing.com/wp-content/uploads/2013/04/included_Kia_Optima-1024x576.jpg |
+Sports Car | Ford Mustang FR500S | https://www.iracing.com/cars/ford-mustang-fr500s/ | https://s100.iracing.com/wp-content/uploads/2012/11/Ford-FR500-1024x576.jpg |
+Sports Car | Audi 90 GTO | https://www.iracing.com/cars/audi-90-gto/ | https://s100.iracing.com/wp-content/uploads/2016/09/Audi-90-GTO-1024x576.jpg |
+Sports Car | Ferrari 488 GT3 | https://www.iracing.com/cars/ferrari-488-gt3/ | https://s100.iracing.com/wp-content/uploads/2017/09/Ferrari-488-GT3-2-1024x576.jpg |
+Sports Car | McLaren MP4-12C GT3 | https://www.iracing.com/cars/mclaren-mp4-12c-gt3/ | https://s100.iracing.com/wp-content/uploads/2026/09/mclaren-mp4-12c-gt3-feature-1024x576.jpg |
+Sports Car | BMW Z4 GT3 | https://www.iracing.com/cars/bmw-z4-gt3/ | https://s100.iracing.com/wp-content/uploads/2013/12/BMW-Z4-GT3-1-1024x576.jpg |
+Sports Car | Ford GT-R | https://www.iracing.com/cars/ford-gt/ | https://s100.iracing.com/wp-content/uploads/2026/09/ford-gt2-feature-1024x576.jpg |
+Sports Car | Audi R8 LMS GT3 | https://www.iracing.com/cars/audi-r8-lms-gt3/ | https://s100.iracing.com/wp-content/uploads/2016/02/Audi-R8-LMS-GT3-1024x576.jpg |
+Sports Car | Ferrari 488 GT3 Evo 2020 | https://www.iracing.com/cars/ferrari-488-gt3-evo-2020/ | https://s100.iracing.com/wp-content/uploads/2021/09/Ferrari-488-GT3-EVO-1024x576.jpg |
+Sports Car | Mercedes-AMG GT3 | https://www.iracing.com/cars/mercedes-amg-gt3/ | https://s100.iracing.com/wp-content/uploads/2016/02/Mercedes-AMG-GT3-Legacy-1024x576.jpg |
+Sports Car | Porsche 911 GT3 R | https://www.iracing.com/cars/porsche-911-gt3-r/ | https://s100.iracing.com/wp-content/uploads/2021/06/Porsche-911-GT3-R-1-1024x576.jpg |
+Sports Car | Supercars Ford Mustang GT | https://www.iracing.com/cars/supercars-ford-mustang-gt/ | https://s100.iracing.com/wp-content/uploads/2019/12/New-Ford-Tile-1024x576.jpg |
+Sports Car | Supercars Holden ZB Commodore | https://www.iracing.com/cars/supercars-holden-zb-commodore/ | https://s100.iracing.com/wp-content/uploads/2019/12/New-Holden-Tile-1024x576.jpg |
+Sports Car | V8 Supercar Holden VF Commodore – 2014 | https://www.iracing.com/cars/v8-supercar-holden-vf-commodore-2014/ | https://s100.iracing.com/wp-content/uploads/2013/12/Legacy-V8-Supercar-Holden-VF-Commodore-2014-feature-1-1024x576.jpg |
+Sports Car | V8 Supercar Ford FG Falcon – 2014 | https://www.iracing.com/cars/v8-supercar-ford-fg-falcon-2014/ | https://s100.iracing.com/wp-content/uploads/2015/05/V8-Supercar-Ford-FG-Falcon-2014-feature-1-1024x576.jpg |
+Sports Car | V8 Supercar Ford Falcon – 2009 | https://www.iracing.com/cars/v8-supercar-ford-falcon-2009/ | https://s100.iracing.com/wp-content/uploads/2020/05/legacy_V8SupercarFordFalcon_2009-1024x576.jpg |
+Sports Car | Porsche 911 GT3 Cup | https://www.iracing.com/cars/porsche-gt3-cup/ | https://s100.iracing.com/wp-content/uploads/2017/01/Porsche-911-Cup-991-1024x576.jpg |
+Sports Car | BMW M4 F82 GT4 – 2018 | https://www.iracing.com/cars/bmw-m4-f82-gt4/ | https://s100.iracing.com/wp-content/uploads/2020/06/BMW-M4-GT4-1024x576.jpg |
+Sports Car | RUF RT 12 R | https://www.iracing.com/cars/ruf-rt-12-r/ | https://s100.iracing.com/wp-content/uploads/2013/01/Ruf-RT12-1024x576.jpg |
+Sports Car | Volkswagen Jetta TDi | https://www.iracing.com/cars/volkswagen-jetta-tdi/ | https://s100.iracing.com/wp-content/uploads/2012/11/included_VWJettaTDI-1024x576.jpg |
+Sports Car | Pontiac Solstice Club Sport | https://www.iracing.com/cars/pontiac-solstice-club-sport/ | https://s100.iracing.com/wp-content/uploads/2012/10/PontiacSolstice-feature-1024x576.jpg |
+Sports Car | Pontiac Solstice Club Sport – Rookie | https://www.iracing.com/cars/pontiac-solstice-club-sport-rookie/ | https://s100.iracing.com/wp-content/uploads/2012/10/PontiacSolstice_Rookie-feature-1024x576.jpg |
+Sports Car | Mazda MX-5 Cup – 2010 | https://www.iracing.com/cars/mazda-mx-5-cup-2010/ | https://s100.iracing.com/wp-content/uploads/2026/09/mazda-mx-5-cup-2010-feature-1024x576.jpg |
+Sports Car | Mazda MX-5 Roadster – 2010 | https://www.iracing.com/cars/mazda-mx-5-roadster-2010/ | https://s100.iracing.com/wp-content/uploads/2025/07/mazda-mx-5-roadster-2010-feature-1024x576.jpg |
+Prototypes | Aston Martin Valkyrie AMR-LMH | https://www.iracing.com/cars/aston-martin-valkyrie-amr-lmh/ | https://s100.iracing.com/wp-content/uploads/2026/09/aston-martin-valkyrie-feature-1024x576.jpg | NEW
+Prototypes | BMW M Hybrid V8 Evo | https://www.iracing.com/cars/bmw-m-hybrid-v8-evo/ | https://s100.iracing.com/wp-content/uploads/2026/06/bmw-m-hybrid-v8-evo-feature-1024x576.jpg |
+Prototypes | Ferrari 499P | https://www.iracing.com/cars/ferrari-499p/ | https://s100.iracing.com/wp-content/uploads/2024/12/ferrari-499p-feature-1024x576.jpg |
+Prototypes | Acura ARX-06 GTP | https://www.iracing.com/cars/acura-arx-06-gtp/ | https://s100.iracing.com/wp-content/uploads/2025/12/acura-arx-06-feature-1024x576.jpg |
+Prototypes | Porsche 963 GTP | https://www.iracing.com/cars/porsche-963-gtp/ | https://s100.iracing.com/wp-content/uploads/2025/12/porsche-963-gtp-feature-1024x576.jpg |
+Prototypes | Cadillac V-Series.R GTP | https://www.iracing.com/cars/cadillac-v-series-r-gtp/ | https://s100.iracing.com/wp-content/uploads/2026/03/cadillacvgtp-feature-1024x576.jpg |
+Prototypes | Ligier JS P320 | https://www.iracing.com/cars/ligier-js-p320/ | https://s100.iracing.com/wp-content/uploads/2023/06/Ligier-JS-P320-Feature-1024x576.jpg |
+Prototypes | Dallara P217 LMP2 | https://www.iracing.com/cars/dallara-p217-lmp2/ | https://s100.iracing.com/wp-content/uploads/2020/08/Dallara_P217_LMP2-1-1024x576.jpg |
+Prototypes | Radical SR10 | https://www.iracing.com/cars/radical-sr10/ | https://s100.iracing.com/wp-content/uploads/2022/05/Radical-SR10-1024x576.jpg |
+Prototypes | Porsche 919 LMP1 | https://www.iracing.com/cars/porsche-919-lmp1/ | https://s100.iracing.com/wp-content/uploads/2018/02/Porsche-919-feature-1024x576.jpg |
+Prototypes | Audi R18 LMP1 | https://www.iracing.com/cars/audi-r18-lmp1/ | https://s100.iracing.com/wp-content/uploads/2018/02/Audi-R18-1-1024x576.jpg |
+Prototypes | Chevrolet Corvette C7 Daytona Prototype | https://www.iracing.com/cars/chevrolet-corvette-c7-daytona-prototype/ | https://s100.iracing.com/wp-content/uploads/2015/09/C7-Corvette-DP-1024x576.jpg |
+Prototypes | HPD ARX 01c | https://www.iracing.com/cars/hpd-arx-01c/ | https://s100.iracing.com/wp-content/uploads/2012/11/HRC-ARX01c-feature-1024x576.jpg |
+Prototypes | Riley Mk XX Daytona Prototype | https://www.iracing.com/cars/riley-mkxx-daytona-prototype/ | https://s100.iracing.com/wp-content/uploads/2020/05/legacy_RileyMkXXDaytonaProto_2008-1024x576.jpg |
+Prototypes | Nissan GTP ZX-T | https://www.iracing.com/cars/nissan-gtp-zx-t/ | https://s100.iracing.com/wp-content/uploads/2016/09/Nissan-GTP-1024x576.jpg |
+Prototypes | Radical SR8 V8 | https://www.iracing.com/cars/radical-sr8-v8/ | https://s100.iracing.com/wp-content/uploads/2020/05/included_RadicalSR8V8-1024x576.jpg |
+Prototypes | SCCA Spec Racer Ford | https://www.iracing.com/cars/scca-spec-racer/ | https://s100.iracing.com/wp-content/uploads/2020/05/included_SCCASpecRacerFord-1024x576.jpg |
+Formula Car | Formula Vee – Conqueror | https://www.iracing.com/cars/formula-vee-conqueror/ | https://s100.iracing.com/wp-content/uploads/2026/06/formulavee3-feature-1024x576.jpg |
+Formula Car | Formula Vee – Sabre | https://www.iracing.com/cars/formula-vee-sabre/ | https://s100.iracing.com/wp-content/uploads/2026/06/formulavee2-feature-1024x576.jpg |
+Formula Car | Dallara IL-15 | https://www.iracing.com/cars/dallara-il-15/ | https://s100.iracing.com/wp-content/uploads/2025/09/Dallarail15-feature-1024x576.jpg |
+Formula Car | Super Formula Lights | https://www.iracing.com/cars/super-formula-lights/ | https://s100.iracing.com/wp-content/uploads/2024/03/SuperFormulaLight_feature-1024x576.jpg |
+Formula Car | Super Formula SF23 – Honda | https://www.iracing.com/cars/super-formula-sf23-honda/ | https://s100.iracing.com/wp-content/uploads/2023/09/SuperformulaSF23Honda-feature-1024x576.jpg |
+Formula Car | Super Formula SF23 – Toyota | https://www.iracing.com/cars/super-formula-sf23-toyota/ | https://s100.iracing.com/wp-content/uploads/2023/09/SuperformulaSF23-feature-1024x576.jpg |
+Formula Car | Ray FF1600 | https://www.iracing.com/cars/ray-ff1600/ | https://s100.iracing.com/wp-content/uploads/2023/02/ray-ff-1600-feature-1024x576.jpg |
+Formula Car | Mercedes-AMG F1 W13 E Performance | https://www.iracing.com/cars/mercedes-amg-w13-e-performance/ | https://s100.iracing.com/wp-content/uploads/2022/12/Mercedes-AMG-F1-W13-E-Performance-Store-Tile-v3-1024x576.jpg |
+Formula Car | Mercedes-AMG F1 W12 E Performance | https://www.iracing.com/cars/mercedes-amg-f1-w12-e-performance/ | https://s100.iracing.com/wp-content/uploads/2021/11/Mercedes-AMG-Petronas-F1-W12-E-Performance-1024x576.jpg |
+Formula Car | Indy Pro 2000 | https://www.iracing.com/cars/indy-pro-2000/ | https://s100.iracing.com/wp-content/uploads/2020/06/Indy_Pro_PM_18-1024x576.jpg |
+Formula Car | FIA F4 | https://www.iracing.com/cars/fia-f4/ | https://s100.iracing.com/wp-content/uploads/2022/03/Formula-iR-04-1024x576.jpg |
+Formula Car | Dallara iR-01 | https://www.iracing.com/cars/dallara-ir01/ | https://s100.iracing.com/wp-content/uploads/2020/12/Dallara_iR_01-1024x576.jpg |
+Formula Car | Formula Vee – Classic | https://www.iracing.com/cars/formula-vee/ | https://s100.iracing.com/wp-content/uploads/2021/05/Formula-Vee-1024x576.jpg |
+Formula Car | USF2000 | https://www.iracing.com/cars/usf2000/ | https://s100.iracing.com/wp-content/uploads/2020/06/USF_2000_PM_17-1024x576.jpg |
+Formula Car | McLaren Honda MP4-30 | https://www.iracing.com/cars/mclaren-honda-mp4-30/ | https://s100.iracing.com/wp-content/uploads/2026/09/mclaren-honda-mp4-30-feature-1024x576.jpg |
+Formula Car | Williams-Toyota FW31 | https://www.iracing.com/cars/williams-toyota-fw31/ | https://s100.iracing.com/wp-content/uploads/2012/11/Williams-FW31-1024x576.jpg |
+Formula Car | Dallara IR18 INDYCAR | https://www.iracing.com/cars/dallara-ir18/ | https://s100.iracing.com/wp-content/uploads/2018/03/Dallara-IR18-3-1024x576.jpg |
+Formula Car | Formula Renault 3.5 | https://www.iracing.com/cars/formula-renault-3-5/ | https://s100.iracing.com/wp-content/uploads/2018/11/FR3.5-1024x576.jpg |
+Formula Car | Dallara F3 | https://www.iracing.com/cars/dallara-f3/ | https://s100.iracing.com/wp-content/uploads/2018/11/Dallara-F3-1-1024x576.jpg |
+Formula Car | Formula Renault 2.0 | https://www.iracing.com/cars/formula-renault-2-0/ | https://s100.iracing.com/wp-content/uploads/2015/07/FR20-1024x576.jpg |
+Formula Car | Pro Mazda | https://www.iracing.com/cars/star-mazda/ | https://s100.iracing.com/wp-content/uploads/2012/11/Pro-Mazda-Tile-1024x576.jpg |
+Formula Car | Skip Barber Formula 2000 | https://www.iracing.com/cars/skip-barber-formula-2000/ | https://s100.iracing.com/wp-content/uploads/2021/01/Skip-Barber-F2000-1024x576.jpg |
+Formula Car | Lotus 49 | https://www.iracing.com/cars/classic-lotus-49/ | https://s100.iracing.com/wp-content/uploads/2012/11/Lotus-49-1-1024x576.jpg |
+Formula Car | Lotus 79 | https://www.iracing.com/cars/lotus-79/ | https://s100.iracing.com/wp-content/uploads/2012/11/Lotus-79-1024x576.jpg |
+Formula Car | Dallara DW12 | https://www.iracing.com/cars/dallara-dw12/ | https://s100.iracing.com/wp-content/uploads/2020/05/included_DallaraDW12-1024x576.jpg |
+Formula Car | Dallara IR05- Circa 2009 | https://www.iracing.com/cars/dallara-ir05/ | https://s100.iracing.com/wp-content/uploads/2020/05/legacy_DallaraIndycar_2009-1024x576.jpg |
+Dirt Oval | Mini Stock – Dirt | https://www.iracing.com/cars/mini-stock-dirt/ | https://s100.iracing.com/wp-content/uploads/2024/09/mini-stock-dirt-feature-1024x576.jpg |
+Dirt Oval | DIRTcar 358 Small Block Modified | https://www.iracing.com/cars/358-modified/ | https://s100.iracing.com/wp-content/uploads/2020/12/358-modified-1-1024x576.jpg |
+Dirt Oval | Super DIRTcar Big Block Modified | https://www.iracing.com/cars/big-block-modified/ | https://s100.iracing.com/wp-content/uploads/2020/12/big-block-modified-1-1024x576.jpg |
+Dirt Oval | World of Outlaws 410 Sprint Car | https://www.iracing.com/cars/dirt-410-sprint-car/ | https://s100.iracing.com/wp-content/uploads/2017/03/Dirt-Sprint-410-Winged-1024x576.jpg |
+Dirt Oval | DIRTcar 360 Sprint Car | https://www.iracing.com/cars/dirt-360-sprint-car/ | https://s100.iracing.com/wp-content/uploads/2017/03/Dirt-Sprint-360-Winged-1024x576.jpg |
+Dirt Oval | DIRTcar 305 Sprint Car | https://www.iracing.com/cars/dirt-305-sprint-car/ | https://s100.iracing.com/wp-content/uploads/2017/03/Dirt-Sprint-305-Winged-1024x576.jpg |
+Dirt Oval | Dirt Micro Sprint | https://www.iracing.com/cars/dirt-micro-sprint/ | https://s100.iracing.com/wp-content/uploads/2025/07/micro-sprint-feature-1024x576.jpg |
+Dirt Oval | Dirt Outlaw Micro Sprint – Winged | https://www.iracing.com/cars/dirt-outlaw-micro-sprint/ | https://s100.iracing.com/wp-content/uploads/2025/07/dirt-outlaw-micro-sprint-feature-1024x576.jpg |
+Dirt Oval | Dirt Micro Sprint – Non Winged | https://www.iracing.com/cars/dirt-micro-sprint-non-winged/ | https://s100.iracing.com/wp-content/uploads/2025/07/micro-sprint-non-winged-feature-1024x576.jpg |
+Dirt Oval | Dirt Outlaw Micro Sprint – Non Winged | https://www.iracing.com/cars/dirt-outlaw-micro-sprint-non-winged/ | https://s100.iracing.com/wp-content/uploads/2025/07/dirt-outlaw-micro-sprint-non-winged-feature-1024x576.jpg |
+Dirt Oval | Dirt Midget | https://www.iracing.com/cars/dirt-midget/ | https://s100.iracing.com/wp-content/uploads/2017/11/Dirt-Midget-1024x576.jpg |
+Dirt Oval | World of Outlaws Super Late Model | https://www.iracing.com/cars/dirt-super-late-model/ | https://s100.iracing.com/wp-content/uploads/2017/03/Dirt-SLM-1024x576.jpg |
+Dirt Oval | DIRTcar Pro Late Model | https://www.iracing.com/cars/dirt-pro-late-model/ | https://s100.iracing.com/wp-content/uploads/2017/03/D%E2%80%8Firt-Pro-Late-Model-1024x576.jpg |
+Dirt Oval | DIRTcar Limited Late Model | https://www.iracing.com/cars/dirt-limited-late-model/ | https://s100.iracing.com/wp-content/uploads/2017/03/D%E2%80%8Firt-Late-Model-Limited-1024x576.jpg |
+Dirt Oval | USAC 410 Sprint Car | https://www.iracing.com/cars/usac-410-sprint-car/ | https://s100.iracing.com/wp-content/uploads/2017/04/USAC-410-SC-1024x576.jpg |
+Dirt Oval | USAC 360 Sprint Car | https://www.iracing.com/cars/usac-360-sprint-car/ | https://s100.iracing.com/wp-content/uploads/2017/04/USAC-360-SC-1024x576.jpg |
+Dirt Oval | UMP Modified | https://www.iracing.com/cars/ump-modified/ | https://s100.iracing.com/wp-content/uploads/2017/08/included_UMPModified-1024x576.jpg |
+Dirt Oval | NASCAR Truck Series Dirt Chevrolet Silverado | https://www.iracing.com/cars/nascar-dirt-chevrolet-silverado/ | https://s100.iracing.com/wp-content/uploads/2017/03/chevroletsilverado-feature-1024x576-1.jpg |
+Dirt Oval | NASCAR Truck Series DIrt Toyota Tundra TRD | https://www.iracing.com/cars/nascar-dirt-toyota-tundra/ | https://s100.iracing.com/wp-content/uploads/2017/03/NASCARToyotaTundraTRD-1024x576.jpg |
+Dirt Oval | Dirt Legends Ford ’34 Coupe | https://www.iracing.com/cars/legends-dirt-car/ | https://s100.iracing.com/wp-content/uploads/2012/10/legends-dirt-feature-1024x576.jpg |
+Dirt Oval | NASCAR Truck Series Dirt Ford F-150 | https://www.iracing.com/cars/nascar-truck-series-dirt-ford-f-150/ | https://s100.iracing.com/wp-content/uploads/2020/06/NASCAR-Craftsman-Ford-F150-2022-1-1024x576.jpg |
+Dirt Oval | Dirt Street Stock | https://www.iracing.com/cars/dirt-street-stock/ | https://s100.iracing.com/wp-content/uploads/2020/05/included_DirtStreetStock-1024x576.jpg |
+Rallycross | FIA Cross Car | https://www.iracing.com/cars/fia-cross-car/ | https://s100.iracing.com/wp-content/uploads/2025/12/fia-cross-car-feature-1024x576.jpg |
+Rallycross | Subaru WRX STI | https://www.iracing.com/cars/subaru-wrx-sti/ | https://s100.iracing.com/wp-content/uploads/2018/06/Subaru-WRX-1024x576.jpg |
+Rallycross | Ford Fiesta RS WRC | https://www.iracing.com/cars/ford-fiesta-rs-wrc/ | https://s100.iracing.com/wp-content/uploads/2016/04/Ford-Fiesta-1024x576.jpg |
+Rallycross | VW Beetle | https://www.iracing.com/cars/vw-beetle/ | https://s100.iracing.com/wp-content/uploads/2025/07/vwbeetle-feature-1024x576.jpg |
+Rallycross | VW Beetle Lite | https://www.iracing.com/cars/vw-beetle-lite/ | https://s100.iracing.com/wp-content/uploads/2025/07/vwbeetlelite-feature-1024x576.jpg |
+Off-Road | Lucas Oil Off Road Pro 2 Truck | https://www.iracing.com/cars/lucas-oil-off-road-pro-2-truck/ | https://s100.iracing.com/wp-content/uploads/2025/07/pro2-feature-1024x576.jpg |
+Off-Road | Lucas Oil Off Road Pro 4 Truck | https://www.iracing.com/cars/lucas-oil-off-road-pro-4-truck/ | https://s100.iracing.com/wp-content/uploads/2019/05/Pro-4-Truck-Tile-1-1024x576.jpg |
+Off-Road | Lucas Oil Off-Road Pro 2 Lite Truck | https://www.iracing.com/cars/pro-2-lite/ | https://s100.iracing.com/wp-content/uploads/2025/07/pro2lite-feature-1024x576.jpg |

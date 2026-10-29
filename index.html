@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iRacing Cars and Tracks (AI filter)</title>
+<meta name="description" content="The iRacing car and track catalog with a filter for AI-enabled content, plus class, type and images.">
+<style>
+:root{
+  --bg:#f4f5f7; --card:#ffffff; --ink:#151a22; --muted:#596273; --line:#dde1e8;
+  --accent:#c8281f; --chip:#eceff4; --chip-ink:#2b3442; --ok:#0b6b5f; --warn:#8a5a00; --ph:#e3e7ee;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0e1117; --card:#161b24; --ink:#e7ebf2; --muted:#95a0b2; --line:#283040;
+        --accent:#ff6a5f; --chip:#212836; --chip-ink:#d5dbe6; --ok:#5fe3cf; --warn:#f2c14e; --ph:#1d2431;}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header,main,footer{max-width:1200px;margin:0 auto;padding:0 16px}
+header{padding-top:20px;padding-bottom:8px}
+h1{margin:0;font-size:1.5rem;letter-spacing:-.01em}
+.sub{margin:4px 0 0;color:var(--muted);font-size:.9rem}
+.tabs{display:flex;gap:8px;margin:16px 0 12px}
+.tab{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 16px;border-radius:999px;font:inherit;font-weight:600;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.tab:focus-visible,select:focus-visible,input:focus-visible,.thumb:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.controls input[type=search],.controls select{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:8px 10px;font:inherit;min-width:0}
+.controls input[type=search]{flex:1 1 220px}
+.controls label.chk{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:.9rem;white-space:nowrap}
+.count{color:var(--muted);font-size:.9rem;margin:4px 0 12px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.card.removed{opacity:.6}
+.media{position:relative;aspect-ratio:16/9;background:var(--ph);display:flex;align-items:center;justify-content:center}
+.media>img{width:100%;height:100%;object-fit:cover;display:block}
+.ph{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--muted)}
+.ph b{font-size:1.6rem;letter-spacing:.04em}
+.ph span{font-size:.75rem}
+.thumbs{position:absolute;left:6px;right:6px;bottom:6px;display:flex;gap:4px;overflow-x:auto}
+.thumb{flex:0 0 auto;width:42px;height:28px;padding:0;border:2px solid rgba(255,255,255,.85);border-radius:4px;overflow:hidden;background:#000;cursor:pointer}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.body{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px}
+.name{margin:0;font-size:1rem;font-weight:650;line-height:1.25}
+.cfg{margin:0;color:var(--muted);font-size:.82rem}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{background:var(--chip);color:var(--chip-ink);border-radius:999px;padding:2px 9px;font-size:.76rem;white-space:nowrap}
+.chip.rain{color:var(--ok)} .chip.legacy,.chip.est{color:var(--warn)}
+.chip.est{border:1px dashed currentColor;background:transparent}
+.empty{padding:40px 0;text-align:center;color:var(--muted)}
+footer{padding-top:18px;padding-bottom:36px;color:var(--muted);font-size:.82rem}
+footer a{color:inherit}
+</style>
+</head>
+<body>
+<header>
+  <h1>iRacing Cars and Tracks</h1>
+  <p class="sub" id="sub"></p>
+  <div class="tabs" role="group" aria-label="List">
+    <button class="tab" id="tab-cars" type="button" aria-pressed="true"></button>
+    <button class="tab" id="tab-tracks" type="button" aria-pressed="false"></button>
+  </div>
+  <div class="controls">
+    <input type="search" id="q" placeholder="Search name, class or type" aria-label="Search">
+    <select id="f-ai" aria-label="AI"></select>
+    <select id="f-surface" aria-label="Surface"></select>
+    <select id="f-group" aria-label="Category"></select>
+    <select id="f-class" aria-label="Car class"></select>
+    <select id="f-rain" aria-label="Rain"></select>
+    <label class="chk"><input type="checkbox" id="f-legacy"> Hide legacy</label>
+    <label class="chk"><input type="checkbox" id="f-removed"> Show removed</label>
+  </div>
+  <div class="count" id="count" aria-live="polite"></div>
+</header>
+<main>
+  <div class="grid" id="grid"></div>
+</main>
+<footer>
+  <p id="foot"></p>
+</footer>
+<script src="data/data.js"></script>
+<script>
+(function () {
+  "use strict";
+  var D = window.AI_DATA || { meta: {}, cars: [], tracks: [] };
+  var $ = function (id) { return document.getElementById(id); };
+  var S = { tab: "cars", ai: "yes", q: "", surface: "", group: "", klass: "", rain: "", hideLegacy: false, showRemoved: false };
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function chip(text, cls, title) {
+    var c = el("span", "chip" + (cls ? " " + cls : ""), text);
+    if (title) c.title = title;
+    return c;
+  }
+  function uniq(list) {
+    var seen = {}, out = [];
+    list.forEach(function (v) { if (v && !seen[v]) { seen[v] = 1; out.push(v); } });
+    return out.sort();
+  }
+  function fill(sel, label, values) {
+    sel.textContent = "";
+    var o = el("option", null, label); o.value = ""; sel.appendChild(o);
+    values.forEach(function (v) { var x = el("option", null, v); x.value = v; sel.appendChild(x); });
+  }
+  function initials(name) {
+    var w = name.replace(/[^A-Za-z0-9 ]/g, " ").split(/\s+/).filter(Boolean);
+    return (w.length > 1 ? w[0][0] + w[1][0] : (w[0] || "?").slice(0, 2)).toUpperCase();
+  }
+  function placeholder(name) {
+    var p = el("div", "ph");
+    p.appendChild(el("b", null, initials(name)));
+    p.appendChild(el("span", null, "No image yet"));
+    return p;
+  }
+  function rainFlag(r, isCar) {
+    if (isCar) return r.rain === "yes" ? "Rain" : "";
+    return r.rain === "all" ? "Rain" : r.rain === "road_only" ? "Rain (road only)" : "";
+  }
+  function rainKnown(r) { return r.rain !== "n/a" && r.rain !== "unknown"; }
+
+  function rows() { return S.tab === "cars" ? D.cars : D.tracks; }
+
+  function matches(r) {
+    var isCar = S.tab === "cars";
+    if (r.status !== "active" && !S.showRemoved) return false;
+    if (S.ai && r.ai_enabled !== S.ai) return false;
+    if (S.hideLegacy && r.legacy === "yes") return false;
+    if (S.surface && r.surface !== S.surface) return false;
+    if (S.group && (isCar ? r.category : r.track_type) !== S.group) return false;
+    if (isCar && S.klass && r.car_class !== S.klass) return false;
+    if (S.rain === "yes" && !rainFlag(r, isCar)) return false;
+    if (S.rain === "no" && (rainFlag(r, isCar) || !rainKnown(r))) return false;
+    if (S.q) {
+      var hay = [r.name, r.site_name, r.category, r.car_class, r.track_type, r.configs].join(" ").toLowerCase();
+      if (hay.indexOf(S.q) === -1) return false;
+    }
+    return true;
+  }
+
+  function card(r) {
+    var isCar = S.tab === "cars";
+    var c = el("article", "card" + (r.status !== "active" ? " removed" : ""));
+    var media = el("div", "media");
+    var imgs = isCar ? (r.images || []) : (r.image ? [r.image] : []);
+    var remote = !imgs.length && r.image_url;  // fallback: iRacing's own thumbnail until the local copy exists
+    if (remote) imgs = [r.image_url];
+    if (imgs.length) {
+      var main = el("img"); main.loading = "lazy"; main.alt = r.name; main.referrerPolicy = "no-referrer";
+      main.addEventListener("error", function () {
+        if (main.parentNode) { main.parentNode.replaceChild(placeholder(r.name), main); }
+      });
+      main.src = imgs[0];
+      media.appendChild(main);
+      if (imgs.length > 1) {
+        var th = el("div", "thumbs");
+        imgs.forEach(function (src, i) {
+          var b = el("button", "thumb"); b.type = "button"; b.setAttribute("aria-label", "Show image " + (i + 1));
+          var t = el("img"); t.alt = ""; t.src = src; b.appendChild(t);
+          b.addEventListener("click", function () { main.src = src; });
+          th.appendChild(b);
+        });
+        media.appendChild(th);
+      }
+    } else {
+      media.appendChild(placeholder(r.name));
+    }
+    c.appendChild(media);
+
+    var body = el("div", "body");
+    var h = el("h3", "name");
+    if (r.detail_url) {
+      var a = el("a", null, r.name); a.href = r.detail_url; a.target = "_blank"; a.rel = "noopener";
+      a.style.color = "inherit"; a.title = "Open on iracing.com"; h.appendChild(a);
+    } else { h.textContent = r.name; }
+    body.appendChild(h);
+    if (!isCar && r.configs) body.appendChild(el("p", "cfg", r.configs));
+    var chips = el("div", "chips");
+    chips.appendChild(r.ai_enabled === "yes" ? chip("AI", "rain", "Listed on iRacing's AI Content Available page")
+                                             : chip("No AI", "legacy", "Not on iRacing's AI Content Available pages"));
+    if (r.site_label) chips.appendChild(chip(r.site_label, null, "Label on iracing.com"));
+    var dirtGroup = (isCar ? r.category : r.track_type) === "Dirt Oval";
+    if (!dirtGroup && (r.surface === "dirt" || r.surface === "asphalt")) chips.appendChild(chip(r.surface === "dirt" ? "Dirt" : "Asphalt"));
+    if (isCar) {
+      if (r.category) chips.appendChild(chip(r.category));
+      if (r.car_class && r.car_class !== "Unclassified" && !(dirtGroup && r.car_class === "Dirt")) chips.appendChild(chip(r.car_class));
+    } else if (r.track_type && r.track_type !== "Unclassified") {
+      chips.appendChild(chip(r.track_type));
+    }
+    var rf = rainFlag(r, isCar);
+    if (rf) chips.appendChild(chip(rf, "rain"));
+    if (r.legacy === "yes") chips.appendChild(chip("Legacy", "legacy"));
+    if (r.status !== "active") chips.appendChild(chip("Removed " + (r.removed_on || ""), "legacy"));
+    if (r.meta_source === "estimate") {
+      chips.appendChild(chip(isCar ? "class estimated" : "type estimated", "est",
+        "Not from iRacing. A rule-of-thumb label, to be replaced by real data or a manual override."));
+    }
+    body.appendChild(chips);
+    c.appendChild(body);
+    return c;
+  }
+
+  function renderOptions() {
+    var isCar = S.tab === "cars";
+    var list = rows();
+    var ai = $("f-ai"); ai.textContent = "";
+    [["yes", "AI-enabled only"], ["", "AI and non-AI"], ["no", "Not AI-enabled"]].forEach(function (p) {
+      var o = el("option", null, p[1]); o.value = p[0]; ai.appendChild(o);
+    });
+    ai.value = S.ai;
+    fill($("f-surface"), "All surfaces", uniq(list.map(function (r) { return r.surface; })));
+    fill($("f-group"), isCar ? "All categories" : "All track types",
+         uniq(list.map(function (r) { return isCar ? r.category : r.track_type; })));
+    fill($("f-class"), "All classes", uniq(list.map(function (r) { return r.car_class; })));
+    $("f-class").style.display = isCar ? "" : "none";
+    var rain = $("f-rain");
+    rain.textContent = "";
+    [["", "Rain: any"], ["yes", "Rain enabled"], ["no", "Not rain enabled"]].forEach(function (p) {
+      var o = el("option", null, p[1]); o.value = p[0]; rain.appendChild(o);
+    });
+    S.surface = S.group = S.klass = S.rain = "";
+  }
+
+  function render() {
+    var list = rows().filter(matches).sort(function (a, b) {
+      return a.name.localeCompare(b.name) || a.legacy.localeCompare(b.legacy);
+    });
+    var active = rows().filter(function (r) { return r.status === "active"; }).length;
+    var aiN = rows().filter(function (r) { return r.status === "active" && r.ai_enabled === "yes"; }).length;
+    $("tab-cars").textContent = "Cars (" + D.cars.filter(function (r) { return r.status === "active"; }).length + ")";
+    $("tab-tracks").textContent = "Tracks (" + D.tracks.filter(function (r) { return r.status === "active"; }).length + ")";
+    $("count").textContent = "Showing " + list.length + " of " + active + " " + S.tab + " (" + aiN + " AI-enabled)";
+    var grid = $("grid");
+    grid.textContent = "";
+    if (!list.length) { grid.appendChild(el("div", "empty", "Nothing matches these filters.")); return; }
+    var frag = document.createDocumentFragment();
+    list.forEach(function (r) { frag.appendChild(card(r)); });
+    grid.appendChild(frag);
+  }
+
+  function setTab(tab) {
+    S.tab = tab;
+    $("tab-cars").setAttribute("aria-pressed", String(tab === "cars"));
+    $("tab-tracks").setAttribute("aria-pressed", String(tab === "tracks"));
+    renderOptions();
+    render();
+  }
+
+  $("tab-cars").addEventListener("click", function () { setTab("cars"); });
+  $("tab-tracks").addEventListener("click", function () { setTab("tracks"); });
+  $("q").addEventListener("input", function (e) { S.q = e.target.value.trim().toLowerCase(); render(); });
+  $("f-ai").addEventListener("change", function (e) { S.ai = e.target.value; render(); });
+  $("f-surface").addEventListener("change", function (e) { S.surface = e.target.value; render(); });
+  $("f-group").addEventListener("change", function (e) { S.group = e.target.value; render(); });
+  $("f-class").addEventListener("change", function (e) { S.klass = e.target.value; render(); });
+  $("f-rain").addEventListener("change", function (e) { S.rain = e.target.value; render(); });
+  $("f-legacy").addEventListener("change", function (e) { S.hideLegacy = e.target.checked; render(); });
+  $("f-removed").addEventListener("change", function (e) { S.showRemoved = e.target.checked; render(); });
+
+  var m = D.meta || {};
+  var pm = m.page_modified || {};
+  $("sub").textContent = "Updated " + (m.updated || "never") +
+    (pm.asphalt ? " · iRacing AI asphalt page last modified " + pm.asphalt : "");
+  $("foot").textContent = "Sources: iRacing support pages \"AI Content Available\" (asphalt and dirt) for the AI flag; " +
+    "iracing.com/cars and /tracks for the catalog, car categories and thumbnails (images belong to iRacing). " +
+    "Car class and track type are not published there; labels marked \"estimated\" are rule-of-thumb guesses. " +
+    "Not affiliated with iRacing.";
+  setTab("cars");
+})();
+</script>
+</body>
+</html>

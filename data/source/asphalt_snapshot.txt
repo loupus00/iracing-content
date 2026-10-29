@@ -1,0 +1,141 @@
+# Snapshot of iRacing support page "AI Content Available - Asphalt"
+# Page modified: Wed, Sep 9, 2026 10:49 AM. Captured: 2026-10-29.
+# Columns: car | car_rain | track | track_rain  (blank = empty cell on the page)
+Acura ARX-06 GTP|YES|Adelaide Street Circuit|YES
+Acura NSX GT3 EVO 22|YES|Auto Club Speedway - All Configs|Road-YES
+ARCA Chevrolet SS||Autódromo Hermanos Rodríguez (Mexico City) - ALL 7 Configs|Road-YES
+ARCA Ford Mustang||Algarve International Circuit - ALL Configs|YES
+ARCA Toyota Camry||Autodromo Internazionale del Mugello - ALL Configs|YES
+Aston Martin DBR9 GT1||Autodromo Internazionale Enzo e Dino Ferrari - ALL Configs|YES
+Aston Martin Valkyrie AMR-LMH|YES|Autódromo José Carlos Pace - ALL Configs|YES
+Aston Martin Vantage GT4|YES|Autodromo Nazionale Monza - ALL Road Configs|YES
+Aston Martin Vantage EVO GT3|YES|Barber Motorsports Park|YES
+Audi 90 GTO|YES|Brands Hatch Circuit- ALL Configs, except RallyCross|Road-YES
+Audi R18||Bristol Motor Speedway - Dual Pit Roads, Single Pit Road|
+Audi R8 LMS EVO II GT3|YES|Cadwell Park Circuit- ALL Configs|YES
+Audi RS 3 LMS Gen2 TCR|YES|Canadian Tire Motorsports Park|YES
+BMW M4 G82 GT4 Evo|YES|Charlotte Motor Speedway - ALL Configs, except RallyCross|Road-YES
+BMW M4 F82 GT4 - 2018|YES|Chicago Street Course - ALL Configs|YES
+BMW M4 GT3 EVO|YES|Chicagoland Speedway|
+BMW M8 GTE|YES|Circuit de Barcelona Catalunya- ALL Configs, except RallyCross|YES
+BMW M Hybrid V8|YES|Circuit de Lédenon|YES
+BMW M2 CS Racing (F87) - 2020|YES|Circuito de Navarra - ALL Configs|YES
+BMW M2 Racing (G87)|YES|Circuit de Nevers Magny-Cours|YES
+Cadillac CTS-V Racecar||Circuit de Spa-Francorchamps - ALL 7 Configs|YES
+Cadillac V-Series.R GTP|YES|Circuit des 24 Heures du Mans - ALL Configs|YES
+Caterham Academy|YES|Circuit Gilles Villeneuve|YES
+Caterham 420R|YES|Circuit of the Americas - ALL Configs|YES
+Chevrolet Corvette C6.R GT1||Circuit Zandvoort - ALL Configs|YES
+Chevrolet Corvette C7 Daytona Prototype||Circuit Zolder - ALL Configs|YES
+Chevrolet Corvette C8.R GTE|YES|Circuito de Jerez - Angel Nieto - ALL Configs|YES
+Chevrolet Corvette Z06 GT3.R|YES|Concord Speedway|
+Dallara F3||Darlington Raceway|
+Dallara IL-15|YES|Daytona International Speedway - ALL Configs|Road- YES
+Dallara iR-01||Detroit Grand Prix at Belle Isle|YES
+Dallara IR18|YES|Donington Park Racing Circuit - ALL Configs|YES
+Dallara P217|YES|Dover International Speedway|
+EURO NASCAR V8GP|YES|EchoPark Speedway (ATL) - Oval, Oval '08, Legends Oval '08|
+Ferrari 296 Challenge|YES|Federated Auto Parts Raceway at I-55|
+Ferrari 296 GT3|YES|Five Flags Speedway|
+Ferrari 488 GTE|YES|Fuji International Speedway - ALL Configs|YES
+Ferrari 488 GT3 Evo 2020||Hickory Motor Speedway|
+Ferrari 499P|YES|Hockenheimring Baden-Württemberg - ALL Configs|YES
+FIA F4|YES|Homestead Miami Speedway - ALL Configs|Road- YES
+Ford GTE|YES|Hungaroring|YES
+Ford GT GT2||Indianapolis Motor Speedway - Open Wheel Oval, Oval, Road Course, Open Wheel Oval - 2009, Oval - 2009|Road- YES
+Ford GT GT3|YES|Iowa Speedway - Oval, 2011 Oval, 2011 Legends Infield|
+Ford Mustang GT3|YES|iRacing Superspeedway|
+Ford Mustang GT4|YES|Irwindale Speedway - ALL Configs|
+Ford Mustang FR500S|YES|Kansas Speedway - ALL Configs|Road- YES
+Formula Renault 2.0||Kentucky Speedway|
+Formula Vee - Classic|YES|Kern County Raceway Park - Asphalt Track, Legends (both pavement configs)|
+Formula Vee - Conqueror|YES|Knockhill Racing Circuit - International, International Reverse, National, National Reverse|Road-YES
+Formula Vee - Cutlass|YES|LA Coliseum Raceway|
+Gen 4 Grand National||Langley Speedway|
+Global Mazda MX-5 Cup|YES|Lanier National Speedway - Asphalt|
+Honda Civic Type R|YES|Las Vegas Motor Speedway - Oval, Legends Oval|
+HPD ARX-01c||Lime Rock Park - ALL Configs|YES
+Hyundai Elantra N TC|YES|Long Beach Street Circuit|YES
+Hyundai Veloster N TC|YES|Lucas Oil Indianapolis Raceway Park - Oval|
+Indy Pro 2000 PM-18||Martinsville Speedway|
+Kia Optima||Miami International Autodrome - ALL Configs|YES
+Lamborghini Huracán GT3 EVO|YES|Michigan International Speedway|
+Late Model Stock||Mid-Ohio Sports Car Course - All Configs|YES
+Legends Ford '34 Coupe|YES|Misano World Circuit Marco Simoncelli - ALL Configs|YES
+Ligier JS P320|YES|Mobility Resort Motegi|Road- YES
+Lotus 49|YES|MotorLand Aragón - ALL Configs|YES
+Lotus 79|YES|Motorsport Arena Oschersleben ALL Configs|YES
+McLaren 570s GT4|YES|Mount Panorama Circuit|YES
+McLaren 720S GT3 EVO|YES|Myrtle Beach Speedway|
+Mercedes-AMG GT3 2020|YES|Nashville Fairgrounds Speedway - ALL Configs|
+Mercedes-AMG GT4|YES|Nashville Superspeedway|
+Mercedes-AMG W12 E Performance||New Hampshire Motor Speedway - Oval, Road Course, Road Course with North & Road Course with South Oval|Road-YES
+Mercedes-AMG W13 E Performance||New Smyrna Speedway|
+Mini Stock||North Wilkesboro Speedway - ALL Configs|
+Modified - SK||Nürburgring Combined - ALL Configs|YES
+NASCAR Truck Chevrolet Silverado||Nürburgring Grand-Prix-Strecke - BES/WEC, Grand Prix, Grand Prix w/out Arena, Kurzanbindung w/out Arena, Sprintstrecke|YES
+NASCAR Truck Ford F150||Nürburgring Nordschleife - Industriefahrten|YES
+NASCAR Truck Toyota Tundra||Okayama International Circuit- ALL Configs|YES
+NASCAR Cup Series Chevrolet Camaro ZL1||Oran Park Raceway - Grand Prix, Moto, North, North A, South|YES
+NASCAR Cup Series Ford Mustang||Oswego Speedway - both asphalt configs|
+NASCAR Cup Series Next Gen Chevrolet Camaro ZL1||Oulton Park Circuit - ALL Configs|YES
+NASCAR Cup Series Next Gen Ford Mustang||Oxford Plains Speedway|
+NASCAR Cup Series Next Gen Toyota Camry||Phillip Island Circuit|YES
+NASCAR Cup Series Toyota Camry||Phoenix Raceway - ALL Configs|
+NASCAR Gen 4 Chevrolet Monte Carlo - 2003||Pocono Raceway|
+NASCAR Gen 4 Ford Taurus - 2003||Portland International Raceway - ALL Configs|YES
+NASCAR Legends Buick LeSabre - 1987||Red Bull Ring - ALL Configs|YES
+NASCAR Legends Chevrolet Monte Carlo - 1987||Richmond Raceway|
+NASCAR Legends Ford Thunderbird - 1987||Road America - ALL Configs|YES
+NASCAR Legends Pontiac Grand Prix - 1987||Road Atlanta -ALL Configs|YES
+NASCAR Truck Ram||Rockingham Speedway - Oval, Oval - 2012|
+NASCAR Whelen Tour Modified||Rudskogen Motorsenter|YES
+NASCAR O'Reilly Chevrolet Camaro||Sandown International Motor Raceway|YES
+NASCAR O'Reilly Ford Mustang||Sachsenring|YES
+NASCAR O'Reilly Toyota Supra||Sebring International Raceway - ALL Configs|YES
+Nissan GTP ZX-T|YES|Shell V-Power Motorsport Park at The Bend- ALL Configs|YES
+Pontiac Solstice||Silverstone Circuit - ALL Configs|YES
+Pontiac Solstice - Rookie||Slinger Speedway- ALL Configs|
+Porsche 718 Cayman GT4 Clubsport MR|YES|Snetterton Circuit - 200, 300|YES
+Porsche 963 GTP|YES|Sonoma Raceway - ALL Configs, except RallyCross|YES
+Porsche 911 Cup (992.2)|YES|South Boston Speedway|
+Porsche 911 GT3 R (992)|YES|Southern National Motorsports Park|
+Porsche 911 RSR|YES|Stafford Motor Speedway - Full Course|
+Porsche 919||St. Petersburg Grand Prix|YES
+Qualcomm Circuit (Naval Base Coronado)|YES|Summit Point Raceway - ALL Configs|YES
+Radical SR8||Suzuka International Racing Course - ALL Configs|YES
+Radical SR10||Talladega Superspeedway|
+Ray FF1600|YES|Texas Motor Speedway - ALL Configs|
+Renault Clio R.S. V|YES|The Bullring|
+SCCA Spec Racer Ford||The Milwaukee Mile|Road- YES
+Silver Crown||Thompson Speedway Motorsports Park|
+Skip Barber Formula 2000|YES|Thruxton Circuit|YES
+SRX||Tsukuba Circuit - ALL Configs|YES
+Stock Car Pro Series Chevrolet Cruze||USA International Speedway -Asphalt|
+Stock Car Pro Series Toyota Corolla||Virginia International Raceway - ALL Configs|YES
+Street Stock||Watkins Glen International - ALL Configs|YES
+Street Stock - Casino, Eagle||WeatherTech Raceway at Laguna Seca|YES
+Super Formula Lights|YES|Willow Springs International Raceway|YES
+Super Formula SF23 - Toyota|YES|Winton Motor Raceway - ALL Configs|YES
+Super Formula SF23 - Honda|YES|World Wide Technology Raceway (Gateway) - Oval|
+Super Late Model||[Legacy] Kentucky Speedway - ALL Configs|
+Supercars Chevrolet Camaro Gen 3|YES|[Legacy] Silverstone Circuit - 2008 - ALL Configs|YES
+Supercars Ford Mustang Gen 3|YES|[Legacy] Texas Motor Speedway - 2009 - Legends Oval|
+Toyota GR86|YES||
+USF 2000|||
+VW Jetta TDI Cup|||
+Williams Toyota FW31|||
+[Legacy] ARCA Menards Chevrolet Impala|||
+[Legacy] Audi R8 LMS|||
+[Legacy] Audi RS3 LMS TCR|YES||
+[Legacy] BMW Z4 GT3|||
+[Legacy] Ferrari 488 GT3|||
+[Legacy] McLaren MP4-12C GT3|YES||
+[Legacy] Mercedes-AMG GT3|||
+[Legacy] NASCAR Gen 4 Cup|||
+[Legacy] Porsche 911 GT3 R|||
+[Legacy] Porsche 911 GT3 Cup (991)|||
+[Legacy] Porsche 911 GT3 Cup (992.1)|YES||
+[Legacy] Supercars Ford Mustang GT|||
+[Legacy] Supercars Holden ZB Commodore|||
+[Legacy] Riley MkXX Daytona Prototype - 2008|||

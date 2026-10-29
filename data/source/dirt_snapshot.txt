@@ -1,0 +1,17 @@
+# Snapshot of iRacing support page "AI Content Available - Dirt"
+# Page modified: Wed, Sep 9, 2026 10:50 AM. Captured: 2026-10-29.
+# Columns: car | track  (this page has no rain column)
+Dirt Legends Ford '34 Coupe|Bristol Motor Speedway
+Dirt Street Stock|Bristol Motor Speedway - 2021
+|Eldora Speedway
+|Fairbury Speedway
+|Huset's Speedway
+|Kevin Harvick's Kern Raceway
+|Lanier National Speedway
+|Lernerville Speedway
+|Limaland Motorsports Park
+|Lucas Oil Speedway
+|Oswego Speedway
+|Port Royal Speedway
+|The Dirt Track at Charlotte
+|USA International Speedway
