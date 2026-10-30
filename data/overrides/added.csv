@@ -1,17 +1,226 @@
 id,ai_added,source
+asphalt-acura-arx-06-gtp,2023-09-05,AI-enable date from initial release notes
+asphalt-acura-nsx-gt3-evo-22,2024-12-09,AI-enable date from initial release notes
+asphalt-adelaide-street-circuit,2025-12-08,AI-enable date from initial release notes
+asphalt-algarve-international-circuit,2024-03-05,AI-enable date from initial release notes
+asphalt-arca-menards-chevrolet-impala-legacy,2022-06-06,AI-enable date from initial release notes
+asphalt-aston-martin-dbr9-gt1,2023-06-05,AI-enable date from initial release notes
 asphalt-aston-martin-valkyrie-amr-lmh,2026-09-09,2026 Season 4 release notes
-asphalt-caterham-academy,2026-09-09,2026 Season 4 release notes
-asphalt-caterham-420r,2026-09-09,2026 Season 4 release notes
-asphalt-gen-4-grand-national,2026-09-09,2026 Season 4 release notes
-asphalt-chevrolet-corvette-c7-daytona-prototype,2026-09-09,2026 Season 4 release notes
-asphalt-formula-renault-2-0,2026-09-09,2026 Season 4 release notes
-asphalt-bmw-z4-gt3-legacy,2026-09-09,2026 Season 4 release notes
-asphalt-riley-mkxx-daytona-prototype-2008-legacy,2026-09-09,2026 Season 4 release notes
+asphalt-aston-martin-vantage-evo-gt3,2025-09-08,AI-enable date from initial release notes
+asphalt-aston-martin-vantage-gt4,2022-03-08,AI-enable date from initial release notes
+asphalt-audi-90-gto,2023-09-05,AI-enable date from initial release notes
+asphalt-audi-r18,2025-06-10,AI-enable date from initial release notes
+asphalt-audi-r8-lms-evo-ii-gt3,2023-12-05,AI-enable date from initial release notes
+asphalt-audi-r8-lms-legacy,2021-03-09,AI-enable date from initial release notes
+asphalt-audi-rs-3-lms-gen2-tcr,2020-03-02,AI-enable date from initial release notes
 asphalt-auto-club-speedway,2026-09-09,2026 Season 4 release notes
+asphalt-autodromo-hermanos-rodriguez-mexico-city,2025-09-08,AI-enable date from initial release notes
+asphalt-autodromo-internazionale-del-mugello,2023-12-05,AI-enable date from initial release notes
+asphalt-autodromo-internazionale-enzo-e-dino-ferrari,2020-12-08,AI-enable date from initial release notes
+asphalt-autodromo-jose-carlos-pace,2020-12-08,AI-enable date from initial release notes
+asphalt-autodromo-nazionale-monza,2022-03-08,AI-enable date from initial release notes
+asphalt-barber-motorsports-park,2022-12-06,AI-enable date from initial release notes
+asphalt-bmw-m-hybrid-v8,2022-12-06,AI-enable date from initial release notes
+asphalt-bmw-m2-cs-racing-f87-2020,2024-12-09,AI-enable date from initial release notes
+asphalt-bmw-m2-racing-g87,2026-06-09,AI-enable date from initial release notes
+asphalt-bmw-m4-f82-gt4-2018,2020-06-01,AI-enable date from initial release notes
+asphalt-bmw-m4-g82-gt4-evo,2024-09-03,AI-enable date from initial release notes
+asphalt-bmw-m4-gt3-evo,2021-03-09,AI-enable date from initial release notes
+asphalt-bmw-m8-gte,2022-09-06,AI-enable date from initial release notes
+asphalt-bmw-z4-gt3-legacy,2026-09-09,2026 Season 4 release notes
+asphalt-brands-hatch-circuit,2020-03-02,AI-enable date from initial release notes
+asphalt-bristol-motor-speedway,2021-09-07,AI-enable date from initial release notes
+asphalt-cadillac-cts-v-racecar,2023-06-05,AI-enable date from initial release notes
+asphalt-cadillac-v-series-r-gtp,2023-06-05,AI-enable date from initial release notes
+asphalt-cadwell-park-circuit,2024-09-03,AI-enable date from initial release notes
+asphalt-canadian-tire-motorsports-park,2022-09-06,AI-enable date from initial release notes
+asphalt-caterham-420r,2026-09-09,2026 Season 4 release notes
+asphalt-caterham-academy,2026-09-09,2026 Season 4 release notes
+asphalt-charlotte-motor-speedway,2021-12-06,AI-enable date from initial release notes
+asphalt-chevrolet-corvette-c6-r-gt1,2023-06-05,AI-enable date from initial release notes
+asphalt-chevrolet-corvette-c7-daytona-prototype,2026-09-09,2026 Season 4 release notes
+asphalt-chevrolet-corvette-c8-r-gte,2022-09-06,AI-enable date from initial release notes
+asphalt-chicago-street-course,2023-06-05,AI-enable date from initial release notes
+asphalt-chicagoland-speedway,2020-06-01,AI-enable date from initial release notes
+asphalt-circuit-de-barcelona-catalunya,2023-03-07,AI-enable date from initial release notes
+asphalt-circuit-de-ledenon,2023-09-05,AI-enable date from initial release notes
+asphalt-circuit-de-nevers-magny-cours,2022-12-06,AI-enable date from initial release notes
+asphalt-circuit-de-spa-francorchamps,2020-06-01,AI-enable date from initial release notes
+asphalt-circuit-des-24-heures-du-mans,2022-09-06,AI-enable date from initial release notes
+asphalt-circuit-gilles-villeneuve,2022-03-08,AI-enable date from initial release notes
+asphalt-circuit-of-the-americas,2022-03-08,AI-enable date from initial release notes
+asphalt-circuit-zandvoort,2023-03-07,AI-enable date from initial release notes
+asphalt-circuit-zolder,2023-03-07,AI-enable date from initial release notes
+asphalt-circuito-de-jerez-angel-nieto,2023-03-07,AI-enable date from initial release notes
+asphalt-circuito-de-navarra,2024-06-03,AI-enable date from initial release notes
+asphalt-concord-speedway,2021-09-07,AI-enable date from initial release notes
+asphalt-dallara-f3,2020-03-02,AI-enable date from initial release notes
+asphalt-dallara-ir18,2021-12-06,AI-enable date from initial release notes
+asphalt-dallara-p217,2020-12-08,AI-enable date from initial release notes
+asphalt-darlington-raceway,2023-03-07,AI-enable date from initial release notes
+asphalt-daytona-international-speedway,2020-03-02,AI-enable date from initial release notes
+asphalt-detroit-grand-prix-at-belle-isle,2023-03-07,AI-enable date from initial release notes
+asphalt-donington-park-racing-circuit,2022-12-06,AI-enable date from initial release notes
+asphalt-dover-international-speedway,2020-06-01,AI-enable date from initial release notes
+asphalt-echopark-speedway-atl,2022-12-06,AI-enable date from initial release notes
 asphalt-federated-auto-parts-raceway-at-i-55,2026-09-09,2026 Season 4 release notes
+asphalt-ferrari-296-challenge,2025-06-10,AI-enable date from initial release notes
+asphalt-ferrari-296-gt3,2023-09-05,AI-enable date from initial release notes
+asphalt-ferrari-488-gt3-evo-2020,2021-09-07,AI-enable date from initial release notes
+asphalt-ferrari-488-gt3-legacy,2021-03-09,AI-enable date from initial release notes
+asphalt-ferrari-488-gte,2022-09-06,AI-enable date from initial release notes
+asphalt-ferrari-499p,2024-12-09,AI-enable date from initial release notes
+asphalt-five-flags-speedway,2021-09-07,AI-enable date from initial release notes
+asphalt-ford-gt-gt2,2021-03-09,AI-enable date from initial release notes
+asphalt-ford-gte,2022-09-06,AI-enable date from initial release notes
+asphalt-ford-mustang-fr500s,2022-12-06,AI-enable date from initial release notes
+asphalt-ford-mustang-gt4,2025-09-08,AI-enable date from initial release notes
+asphalt-formula-renault-2-0,2026-09-09,2026 Season 4 release notes
+asphalt-formula-vee-conqueror,2026-06-09,AI-enable date from initial release notes
+asphalt-formula-vee-cutlass,2026-06-09,AI-enable date from initial release notes
+asphalt-fuji-international-speedway,2022-06-06,AI-enable date from initial release notes
+asphalt-gen-4-grand-national,2026-09-09,2026 Season 4 release notes
+asphalt-hickory-motor-speedway,2021-09-07,AI-enable date from initial release notes
+asphalt-hockenheimring-baden-wurttemberg,2021-03-09,AI-enable date from initial release notes
+asphalt-homestead-miami-speedway,2020-06-01,AI-enable date from initial release notes
+asphalt-honda-civic-type-r,2021-12-06,AI-enable date from initial release notes
+asphalt-hpd-arx-01c,2023-12-05,AI-enable date from initial release notes
+asphalt-hungaroring,2021-09-07,AI-enable date from initial release notes
+asphalt-hyundai-elantra-n-tc,2021-12-06,AI-enable date from initial release notes
+asphalt-hyundai-veloster-n-tc,2022-03-08,AI-enable date from initial release notes
+asphalt-indianapolis-motor-speedway,2021-12-06,AI-enable date from initial release notes
+asphalt-indy-pro-2000-pm-18,2020-06-01,AI-enable date from initial release notes
+asphalt-iowa-speedway,2020-09-08,AI-enable date from initial release notes
+asphalt-irwindale-speedway,2023-06-05,AI-enable date from initial release notes
 asphalt-kansas-speedway,2026-09-09,2026 Season 4 release notes
+asphalt-kentucky-speedway,2020-06-01,AI-enable date from initial release notes
+asphalt-kentucky-speedway-legacy,2022-12-06,AI-enable date from initial release notes
+asphalt-kern-county-raceway-park,2023-09-05,AI-enable date from initial release notes
+asphalt-knockhill-racing-circuit,2021-12-06,AI-enable date from initial release notes
+asphalt-la-coliseum-raceway,2023-03-07,AI-enable date from initial release notes
+asphalt-lamborghini-huracan-gt3-evo,2021-03-09,AI-enable date from initial release notes
+asphalt-lanier-national-speedway,2021-06-08,AI-enable date from initial release notes
+asphalt-las-vegas-motor-speedway,2021-03-09,AI-enable date from initial release notes
+asphalt-late-model-stock,2023-03-07,AI-enable date from initial release notes
+asphalt-legends-ford-34-coupe,2022-12-06,AI-enable date from initial release notes
+asphalt-ligier-js-p320,2023-06-05,AI-enable date from initial release notes
+asphalt-lime-rock-park,2021-06-08,AI-enable date from initial release notes
+asphalt-lotus-49,2022-09-06,AI-enable date from initial release notes
+asphalt-lotus-79,2022-12-06,AI-enable date from initial release notes
+asphalt-lucas-oil-indianapolis-raceway-park,2021-06-08,AI-enable date from initial release notes
+asphalt-mclaren-720s-gt3-evo,2024-09-03,AI-enable date from initial release notes
+asphalt-mclaren-mp4-12c-gt3-legacy,2021-03-09,AI-enable date from initial release notes
+asphalt-mercedes-amg-gt3-2020,2022-06-06,AI-enable date from initial release notes
+asphalt-mercedes-amg-gt3-legacy,2021-03-09,AI-enable date from initial release notes
+asphalt-mercedes-amg-gt4,2022-06-06,AI-enable date from initial release notes
+asphalt-mercedes-amg-w12-e-performance,2022-03-08,AI-enable date from initial release notes
+asphalt-mercedes-amg-w13-e-performance,2023-03-07,AI-enable date from initial release notes
+asphalt-miami-international-autodrome,2025-12-08,AI-enable date from initial release notes
 asphalt-mid-ohio-sports-car-course,2026-09-09,2026 Season 4 release notes
-dirt-oswego-speedway,2026-09-09,2026 Season 4 release notes
+asphalt-mini-stock,2024-09-03,AI-enable date from initial release notes
+asphalt-mobility-resort-motegi,2023-03-07,AI-enable date from initial release notes
+asphalt-modified-sk,2022-06-06,AI-enable date from initial release notes
+asphalt-motorland-aragon,2023-06-05,AI-enable date from initial release notes
+asphalt-motorsport-arena-oschersleben,2022-09-06,AI-enable date from initial release notes
+asphalt-mount-panorama-circuit,2021-09-07,AI-enable date from initial release notes
+asphalt-myrtle-beach-speedway,2021-09-07,AI-enable date from initial release notes
+asphalt-nascar-cup-series-next-gen-chevrolet-camaro-zl1,2022-09-06,AI-enable date from initial release notes
+asphalt-nascar-cup-series-next-gen-ford-mustang,2022-09-06,AI-enable date from initial release notes
+asphalt-nascar-cup-series-next-gen-toyota-camry,2022-09-06,AI-enable date from initial release notes
+asphalt-nascar-gen-4-chevrolet-monte-carlo-2003,2025-09-08,AI-enable date from initial release notes
+asphalt-nascar-gen-4-cup-legacy,2023-09-05,AI-enable date from initial release notes
+asphalt-nascar-gen-4-ford-taurus-2003,2025-09-08,AI-enable date from initial release notes
+asphalt-nascar-legends-buick-lesabre-1987,2022-12-06,AI-enable date from initial release notes
+asphalt-nascar-legends-chevrolet-monte-carlo-1987,2022-12-06,AI-enable date from initial release notes
+asphalt-nascar-legends-ford-thunderbird-1987,2022-12-06,AI-enable date from initial release notes
+asphalt-nascar-legends-pontiac-grand-prix-1987,2023-09-05,AI-enable date from initial release notes
+asphalt-nascar-truck-chevrolet-silverado,2020-12-08,AI-enable date from initial release notes
+asphalt-nascar-truck-ford-f150,2020-12-08,AI-enable date from initial release notes
+asphalt-nascar-truck-toyota-tundra,2020-12-08,AI-enable date from initial release notes
+asphalt-nascar-whelen-tour-modified,2022-06-06,AI-enable date from initial release notes
+asphalt-nashville-fairgrounds-speedway,2021-12-06,AI-enable date from initial release notes
+asphalt-nashville-superspeedway,2023-03-07,AI-enable date from initial release notes
+asphalt-new-hampshire-motor-speedway,2021-03-09,AI-enable date from initial release notes
+asphalt-new-smyrna-speedway,2023-06-05,AI-enable date from initial release notes
+asphalt-nissan-gtp-zx-t,2023-09-05,AI-enable date from initial release notes
+asphalt-north-wilkesboro-speedway,2020-09-08,AI-enable date from initial release notes
+asphalt-nurburgring-combined,2020-09-08,AI-enable date from initial release notes
+asphalt-nurburgring-grand-prix-strecke,2022-09-06,AI-enable date from initial release notes
+asphalt-nurburgring-nordschleife,2022-12-06,AI-enable date from initial release notes
+asphalt-okayama-international-circuit,2021-06-08,AI-enable date from initial release notes
+asphalt-oran-park-raceway,2021-06-08,AI-enable date from initial release notes
+asphalt-oswego-speedway,2024-06-03,AI-enable date from initial release notes
+asphalt-oulton-park-circuit,2021-06-08,AI-enable date from initial release notes
+asphalt-oxford-plains-speedway,2023-03-07,AI-enable date from initial release notes
+asphalt-phillip-island-circuit,2021-09-07,AI-enable date from initial release notes
+asphalt-phoenix-raceway,2020-09-08,AI-enable date from initial release notes
+asphalt-pocono-raceway,2023-03-07,AI-enable date from initial release notes
+asphalt-pontiac-solstice,2026-06-09,AI-enable date from initial release notes
+asphalt-pontiac-solstice-rookie,2026-06-09,AI-enable date from initial release notes
+asphalt-porsche-718-cayman-gt4-clubsport-mr,2020-03-02,AI-enable date from initial release notes
+asphalt-porsche-911-cup-992-2,2025-12-08,AI-enable date from initial release notes
+asphalt-porsche-911-gt3-cup-991-legacy,2019-12-02,AI-enable date from initial release notes
+asphalt-porsche-911-gt3-cup-992-1-legacy,2021-09-07,AI-enable date from initial release notes
+asphalt-porsche-911-gt3-r-992,2023-06-05,AI-enable date from initial release notes
+asphalt-porsche-911-gt3-r-legacy,2021-06-08,AI-enable date from initial release notes
+asphalt-porsche-911-rsr,2022-09-06,AI-enable date from initial release notes
+asphalt-porsche-919,2025-06-10,AI-enable date from initial release notes
+asphalt-porsche-963-gtp,2023-09-05,AI-enable date from initial release notes
+asphalt-portland-international-raceway,2025-03-10,AI-enable date from initial release notes
+asphalt-radical-sr10,2023-06-05,AI-enable date from initial release notes
+asphalt-radical-sr8,2026-06-09,AI-enable date from initial release notes
+asphalt-ray-ff1600,2023-03-07,AI-enable date from initial release notes
+asphalt-red-bull-ring,2021-06-08,AI-enable date from initial release notes
+asphalt-renault-clio-r-s-v,2023-03-07,AI-enable date from initial release notes
+asphalt-richmond-raceway,2025-06-10,AI-enable date from initial release notes
+asphalt-riley-mkxx-daytona-prototype-2008-legacy,2026-09-09,2026 Season 4 release notes
 asphalt-road-america,2026-09-09,2026 Season 4 release notes
+asphalt-road-atlanta,2023-09-05,AI-enable date from initial release notes
+asphalt-rockingham-speedway,2025-12-08,AI-enable date from initial release notes
+asphalt-rudskogen-motorsenter,2022-09-06,AI-enable date from initial release notes
+asphalt-sachsenring,2024-06-03,AI-enable date from initial release notes
+asphalt-sandown-international-motor-raceway,2022-06-06,AI-enable date from initial release notes
+asphalt-scca-spec-racer-ford,2020-06-01,AI-enable date from initial release notes
+asphalt-shell-v-power-motorsport-park-at-the-bend,2025-06-10,AI-enable date from initial release notes
+asphalt-silver-crown,2025-06-10,AI-enable date from initial release notes
+asphalt-silverstone-circuit,2022-03-08,AI-enable date from initial release notes
+asphalt-slinger-speedway,2023-12-05,AI-enable date from initial release notes
+asphalt-snetterton-circuit,2022-12-06,AI-enable date from initial release notes
+asphalt-sonoma-raceway,2022-12-06,AI-enable date from initial release notes
+asphalt-south-boston-speedway,2021-06-08,AI-enable date from initial release notes
+asphalt-southern-national-motorsports-park,2021-06-08,AI-enable date from initial release notes
+asphalt-st-petersburg-grand-prix,2026-03-09,AI-enable date from initial release notes
+asphalt-stafford-motor-speedway,2022-06-06,AI-enable date from initial release notes
+asphalt-stock-car-pro-series-chevrolet-cruze,2022-06-06,AI-enable date from initial release notes
+asphalt-stock-car-pro-series-toyota-corolla,2022-06-06,AI-enable date from initial release notes
+asphalt-street-stock,2021-06-08,AI-enable date from initial release notes
+asphalt-summit-point-raceway,2020-03-02,AI-enable date from initial release notes
+asphalt-super-formula-lights,2024-03-05,AI-enable date from initial release notes
+asphalt-super-formula-sf23-honda,2023-09-05,AI-enable date from initial release notes
+asphalt-super-formula-sf23-toyota,2023-09-05,AI-enable date from initial release notes
+asphalt-super-late-model,2021-09-07,AI-enable date from initial release notes
+asphalt-supercars-chevrolet-camaro-gen-3,2024-12-09,AI-enable date from initial release notes
+asphalt-supercars-ford-mustang-gen-3,2024-12-09,AI-enable date from initial release notes
+asphalt-supercars-ford-mustang-gt-legacy,2021-09-07,AI-enable date from initial release notes
+asphalt-supercars-holden-zb-commodore-legacy,2021-09-07,AI-enable date from initial release notes
+asphalt-suzuka-international-racing-course,2022-03-08,AI-enable date from initial release notes
+asphalt-texas-motor-speedway,2022-12-06,AI-enable date from initial release notes
+asphalt-texas-motor-speedway-legacy,2022-12-06,AI-enable date from initial release notes
+asphalt-the-bullring,2021-09-07,AI-enable date from initial release notes
 asphalt-the-milwaukee-mile,2026-09-09,2026 Season 4 release notes
+asphalt-thompson-speedway-motorsports-park,2021-06-08,AI-enable date from initial release notes
+asphalt-thruxton-circuit,2024-12-09,AI-enable date from initial release notes
+asphalt-toyota-gr86,2022-12-06,AI-enable date from initial release notes
+asphalt-tsukuba-circuit,2020-06-01,AI-enable date from initial release notes
+asphalt-usa-international-speedway,2020-09-08,AI-enable date from initial release notes
+asphalt-usf-2000,2020-06-01,AI-enable date from initial release notes
+asphalt-watkins-glen-international,2021-12-06,AI-enable date from initial release notes
+asphalt-weathertech-raceway-at-laguna-seca,2020-06-01,AI-enable date from initial release notes
+asphalt-williams-toyota-fw31,2024-12-09,AI-enable date from initial release notes
+asphalt-willow-springs-international-raceway,2023-06-05,AI-enable date from initial release notes
+asphalt-winton-motor-raceway,2022-03-08,AI-enable date from initial release notes
+asphalt-world-wide-technology-raceway-gateway,2021-12-06,AI-enable date from initial release notes
+dirt-dirt-legends-ford-34-coupe,2026-06-09,AI-enable date from initial release notes
+dirt-dirt-street-stock,2026-06-09,AI-enable date from initial release notes
+dirt-oswego-speedway,2026-09-09,2026 Season 4 release notes
 dirt-usa-international-speedway,2026-09-09,2026 Season 4 release notes
