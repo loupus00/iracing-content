@@ -47,6 +47,23 @@ At the time of writing: cars `Ford GT GT2`, `Ford GT GT3`, `Formula Vee - Cutlas
 `Bristol Motor Speedway - 2021` (dirt). Add a line to `aliases.csv` once you know the right counterpart.
 An unmatched item on iracing.com also appears as a separate "No AI" row, so a wrong or missing alias can create a duplicate.
 
+## Details view (specs table)
+
+The **Details** button shows a sortable table (click a header; blanks sort last). Data comes from `data/details.js`,
+which `scripts/build_details.py` builds from `data/overrides/`:
+
+| Source | Fields | Notes |
+|---|---|---|
+| iRacing Wiki on Fandom (`car_specs_wiki.csv`, `track_specs_wiki.csv`) | HP, kg, lbs, engine, engine location, drivetrain, transmission, year, difficulty, price, description; for tracks location, length, turns, configs, pit speed, opened, difficulty, price, description | Community-written. **Wiki wins over the spreadsheet.** HP is the wiki's figure (for hybrids, combined output), which may not equal the sim's own value. |
+| Your spreadsheet (`car_specs.csv`) | Fills HP/kg/lbs/gears only where the wiki is blank; shown with `*` | Out of date in places |
+
+Refreshing the wiki data is manual: Fandom blocks scripts, so export the pages in a browser
+(`Special:Export`, category `Cars` / `Tracks`), save the XML as `data/source/wiki_cars.xml` / `wiki_tracks.xml`, then run
+`python3 scripts/wiki_import.py`, `python3 scripts/wiki_track_import.py`, `python3 scripts/build_details.py`.
+Wiki titles that differ from iRacing's names are mapped by hand in `data/overrides/wiki_map.csv` and `wiki_track_map.csv`;
+anything unmapped stays blank. The weekly job only re-runs `build_details.py`.
+Wiki text credit appears in the page footer; check the wiki's licence before reusing descriptions elsewhere.
+
 ## Publish it on GitHub (free)
 
 1. Signed in as `loupus00`, create a **public** repository (for example `iracing-ai-lists`).

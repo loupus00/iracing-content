@@ -65,6 +65,17 @@ h1{margin:0;font-size:1.5rem;letter-spacing:-.01em}
 .empty{padding:40px 0;text-align:center;color:var(--muted)}
 footer{padding-top:18px;padding-bottom:36px;color:var(--muted);font-size:.82rem}
 footer a{color:inherit}
+.dwrap{overflow:auto;max-height:78vh;border:1px solid var(--line,#ccc);border-radius:8px}
+table.det{border-collapse:collapse;width:100%;font-size:.86rem}
+table.det th,table.det td{padding:6px 10px;border-bottom:1px solid rgba(128,128,128,.25);text-align:left;white-space:nowrap}
+table.det td.num,table.det th.num{text-align:right;font-variant-numeric:tabular-nums}
+table.det th{position:sticky;top:0;background:var(--bg,#fff);cursor:pointer;user-select:none;z-index:1}
+table.det th[aria-sort="ascending"]::after{content:" \25B2";font-size:.7em}
+table.det th[aria-sort="descending"]::after{content:" \25BC";font-size:.7em}
+table.det tr.fresh td{background:rgba(255,200,0,.14)}
+table.det td.bio{white-space:normal;min-width:260px;max-width:520px;color:var(--muted)}
+table.det button.bio-t{background:none;border:0;color:inherit;cursor:pointer;text-decoration:underline;padding:0;font:inherit}
+table.det .sheet{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -89,6 +100,7 @@ footer a{color:inherit}
     <div class="viewtog" role="group" aria-label="View">
       <button type="button" id="v-grid" aria-pressed="true">Thumbnails</button>
       <button type="button" id="v-list" aria-pressed="false">List</button>
+      <button type="button" id="v-details" aria-pressed="false">Details</button>
     </div>
     <label class="chk"><input type="checkbox" id="f-legacy"> Hide legacy</label>
     <label class="chk"><input type="checkbox" id="f-removed"> Show removed</label>
@@ -102,12 +114,14 @@ footer a{color:inherit}
   <p id="foot"></p>
 </footer>
 <script src="data/data.js"></script>
+<script src="data/details.js"></script>
 <script>
 (function () {
   "use strict";
   var D = window.AI_DATA || { meta: {}, cars: [], tracks: [] };
+  var X = window.DETAILS || { cars: {}, tracks: {}, credit: "" };
   var $ = function (id) { return document.getElementById(id); };
-  var S = { tab: "cars", ai: "yes", view: "grid", sort: "name", q: "", surface: "", group: "", klass: "", rain: "", hideLegacy: false, showRemoved: false };
+  var S = { tab: "cars", ai: "yes", view: "grid", dsort: { key: "name", dir: 1 }, open: {}, sort: "name", q: "", surface: "", group: "", klass: "", rain: "", hideLegacy: false, showRemoved: false };
 
   function el(tag, cls, text) {
     var e = document.createElement(tag);
@@ -265,6 +279,102 @@ footer a{color:inherit}
     S.surface = S.group = S.klass = S.rain = "";
   }
 
+  // ---- Details table ----
+  function first(v) { var m = /[\d.]+/.exec(String(v || "")); return m ? parseFloat(m[0]) : null; }
+  var CAR_COLS = [
+    ["name", "Name", "t"], ["ai", "AI", "t"], ["added", "Added", "d"], ["category", "Category", "t"], ["car_class", "Class", "t"],
+    ["year", "Year", "n"], ["hp", "HP", "n"], ["kg", "kg", "n"], ["lbs", "lbs", "n"], ["kg_per_hp", "kg/HP", "n"],
+    ["drivetrain", "Drive", "t"], ["engine_loc", "Engine loc", "t"], ["transmission", "Transmission", "t"], ["engine", "Engine", "t"],
+    ["difficulty", "Difficulty", "t"], ["price_usd", "Price $", "n"], ["bio", "Description", "b"]
+  ];
+  var TRACK_COLS = [
+    ["name", "Name", "t"], ["ai", "AI", "t"], ["added", "Added", "d"], ["surface", "Surface", "t"], ["track_type", "Type", "t"],
+    ["location", "Location", "t"], ["length_mi", "Length mi", "n"], ["length_km", "km", "n"], ["turns", "Turns", "n"],
+    ["configs_n", "Configs", "n"], ["pit_speed", "Pit mph", "n"], ["opened", "Opened", "n"], ["difficulty", "Difficulty", "t"],
+    ["price_usd", "Price $", "n"], ["bio", "Description", "b"]
+  ];
+  function cellVal(r, key, isCar) {
+    var x = (isCar ? X.cars : X.tracks)[r.id] || {};
+    switch (key) {
+      case "name": return r.name;
+      case "ai": return r.ai_enabled === "yes" ? "AI" : "No AI";
+      case "added": return r.ai_added || "";
+      case "category": return r.category || "";
+      case "car_class": return r.car_class && r.car_class !== "Unclassified" ? r.car_class : "";
+      case "surface": return r.surface === "asphalt" || r.surface === "dirt" ? r.surface : "";
+      case "track_type": return r.track_type && r.track_type !== "Unclassified" ? r.track_type : "";
+      default: return x[key] || "";
+    }
+  }
+  function sortVal(v, kind, key) {
+    if (v === "" || v == null) return null;
+    if (kind === "n") return key === "opened" ? first((/\d{4}/.exec(v) || [v])[0]) : first(v);
+    return String(v).toLowerCase();
+  }
+  function renderDetails(list, grid) {
+    var isCar = S.tab === "cars", cols = isCar ? CAR_COLS : TRACK_COLS;
+    var col = cols.filter(function (c) { return c[0] === S.dsort.key; })[0] || cols[0];
+    var rowsV = list.slice().sort(function (a, b) {
+      var va = sortVal(cellVal(a, col[0], isCar), col[2], col[0]), vb = sortVal(cellVal(b, col[0], isCar), col[2], col[0]);
+      if (va === null && vb === null) return a.name.localeCompare(b.name);
+      if (va === null) return 1;            // blanks always last
+      if (vb === null) return -1;
+      if (va === vb) return a.name.localeCompare(b.name);
+      return (va < vb ? -1 : 1) * S.dsort.dir * (col[2] === "d" ? 1 : 1);
+    });
+    var wrap = el("div", "dwrap"), t = el("table", "det"), hr = el("tr");
+    cols.forEach(function (c) {
+      var th = el("th", c[2] === "n" ? "num" : "", c[1]);
+      if (c[2] !== "b") {
+        th.tabIndex = 0; th.setAttribute("role", "columnheader");
+        if (c[0] === S.dsort.key) th.setAttribute("aria-sort", S.dsort.dir === 1 ? "ascending" : "descending");
+        var go = function () { S.dsort = { key: c[0], dir: (S.dsort.key === c[0] && S.dsort.dir === 1) ? -1 : 1 }; render(); };
+        th.addEventListener("click", go);
+        th.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+      }
+      hr.appendChild(th);
+    });
+    var thead = el("thead"); thead.appendChild(hr); t.appendChild(thead);
+    var tb = el("tbody");
+    rowsV.forEach(function (r) {
+      var x = (isCar ? X.cars : X.tracks)[r.id] || {};
+      var tr = el("tr", r.ai_added && r.ai_added === LATEST ? "fresh" : "");
+      cols.forEach(function (c) {
+        var v = cellVal(r, c[0], isCar), td;
+        if (c[0] === "name") {
+          td = el("td");
+          if (r.detail_url) { var a = el("a", null, v); a.href = r.detail_url; a.target = "_blank"; a.rel = "noopener"; a.style.color = "inherit"; td.appendChild(a); }
+          else td.textContent = v;
+          if (r.legacy === "yes") td.appendChild(chip("Legacy", "legacy"));
+        } else if (c[2] === "b") {
+          td = el("td", "bio");
+          if (v) {
+            var open = !!S.open[r.id];
+            var short = v.length > 90 && !open ? v.slice(0, 90).replace(/\s+\S*$/, "") + "\u2026 " : v + " ";
+            td.appendChild(document.createTextNode(short));
+            if (v.length > 90) {
+              var b = el("button", "bio-t", open ? "less" : "more"); b.type = "button";
+              b.addEventListener("click", function () { S.open[r.id] = !open; render(); });
+              td.appendChild(b);
+            }
+          }
+        } else if (c[2] === "d") {
+          td = el("td", "", fmtDate(v));
+        } else {
+          td = el("td", c[2] === "n" ? "num" : "", v);
+          if (c[2] === "n" && x[c[0] + "_src"] === "sheet") { td.classList.add("sheet"); td.title = "From your spreadsheet (not on the wiki page)"; td.textContent = v + "*"; }
+          if (c[0] === "car_class" && v && r.meta_source === "estimate") { td.title = "Estimated class"; td.textContent = v + "?"; }
+        }
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+    t.appendChild(tb); wrap.appendChild(t); grid.appendChild(wrap);
+    var have = rowsV.filter(function (r) { return (isCar ? X.cars : X.tracks)[r.id]; }).length;
+    grid.appendChild(el("p", "cfg", "Specs for " + have + " of " + rowsV.length + " shown. Blank = not on the wiki page. " +
+      "* = from the spreadsheet; ? = estimated class. Click a header to sort; blanks sort last."));
+  }
+
   function render() {
     var list = rows().filter(matches).sort(function (a, b) {
       if (S.sort === "added") {
@@ -279,9 +389,11 @@ footer a{color:inherit}
     $("tab-tracks").textContent = "Tracks (" + D.tracks.filter(function (r) { return r.status === "active"; }).length + ")";
     $("count").textContent = "Showing " + list.length + " of " + active + " " + S.tab + " (" + aiN + " AI-enabled)";
     var grid = $("grid");
-    grid.className = S.view === "list" ? "list" : "grid";
+    grid.className = S.view === "list" ? "list" : S.view === "details" ? "details" : "grid";
     grid.textContent = "";
+    $("f-sort").style.display = S.view === "details" ? "none" : "";
     if (!list.length) { grid.appendChild(el("div", "empty", "Nothing matches these filters.")); return; }
+    if (S.view === "details") { renderDetails(list, grid); return; }
     var frag = document.createDocumentFragment();
     list.forEach(function (r) { frag.appendChild(card(r)); });
     grid.appendChild(frag);
@@ -299,14 +411,16 @@ footer a{color:inherit}
   $("tab-tracks").addEventListener("click", function () { setTab("tracks"); });
   $("q").addEventListener("input", function (e) { S.q = e.target.value.trim().toLowerCase(); render(); });
   function setView(v) {
-    S.view = v === "list" ? "list" : "grid";
+    S.view = v === "list" || v === "details" ? v : "grid";
     $("v-grid").setAttribute("aria-pressed", String(S.view === "grid"));
     $("v-list").setAttribute("aria-pressed", String(S.view === "list"));
+    $("v-details").setAttribute("aria-pressed", String(S.view === "details"));
     try { localStorage.setItem("iracing-view", S.view); } catch (e) { /* storage may be blocked */ }
     render();
   }
   $("v-grid").addEventListener("click", function () { setView("grid"); });
   $("v-list").addEventListener("click", function () { setView("list"); });
+  $("v-details").addEventListener("click", function () { setView("details"); });
   $("f-sort").addEventListener("change", function (e) { S.sort = e.target.value; render(); });
   $("f-ai").addEventListener("change", function (e) { S.ai = e.target.value; render(); });
   $("f-surface").addEventListener("change", function (e) { S.surface = e.target.value; render(); });
@@ -323,10 +437,12 @@ footer a{color:inherit}
   $("foot").textContent = "Sources: iRacing support pages \"AI Content Available\" (asphalt and dirt) for the AI flag; " +
     "iracing.com/cars and /tracks for the catalog, car categories and thumbnails (images belong to iRacing). " +
     "Car class and track type are not published there; labels marked \"estimated\" are rule-of-thumb guesses. " +
+    "Specs and descriptions in the Details view: iRacing Wiki (iracing.fandom.com), community-written. " +
     "Not affiliated with iRacing.";
-  try { if (localStorage.getItem("iracing-view") === "list") { S.view = "list"; } } catch (e) { /* ignore */ }
+  try { var sv = localStorage.getItem("iracing-view"); if (sv === "list" || sv === "details") { S.view = sv; } } catch (e) { /* ignore */ }
   $("v-grid").setAttribute("aria-pressed", String(S.view === "grid"));
   $("v-list").setAttribute("aria-pressed", String(S.view === "list"));
+  $("v-details").setAttribute("aria-pressed", String(S.view === "details"));
   setTab("cars");
 })();
 </script>

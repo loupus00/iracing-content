@@ -5,6 +5,7 @@ set -eu
 cd "$(dirname "$0")/.."
 git pull --ff-only
 python3 scripts/update.py
+python3 scripts/build_details.py
 if [ -n "$(git status --porcelain)" ]; then
   git add -A
   git commit -m "Update AI content lists ($(date +%F))"
