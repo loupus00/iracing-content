@@ -8,11 +8,11 @@
 <style>
 :root{
   --bg:#f4f5f7; --card:#ffffff; --ink:#151a22; --muted:#596273; --line:#dde1e8;
-  --accent:#c8281f; --chip:#eceff4; --chip-ink:#2b3442; --ok:#0b6b5f; --warn:#8a5a00; --ph:#e3e7ee;
+  --accent:#c8281f; --hl:#fff1ef; --chip:#eceff4; --chip-ink:#2b3442; --ok:#0b6b5f; --warn:#8a5a00; --ph:#e3e7ee;
 }
 @media (prefers-color-scheme:dark){
   :root{--bg:#0e1117; --card:#161b24; --ink:#e7ebf2; --muted:#95a0b2; --line:#283040;
-        --accent:#ff6a5f; --chip:#212836; --chip-ink:#d5dbe6; --ok:#5fe3cf; --warn:#f2c14e; --ph:#1d2431;}
+        --accent:#ff6a5f; --hl:#2a1a1b; --chip:#212836; --chip-ink:#d5dbe6; --ok:#5fe3cf; --warn:#f2c14e; --ph:#1d2431;}
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
@@ -47,6 +47,21 @@ h1{margin:0;font-size:1.5rem;letter-spacing:-.01em}
 .chip{background:var(--chip);color:var(--chip-ink);border-radius:999px;padding:2px 9px;font-size:.76rem;white-space:nowrap}
 .chip.rain{color:var(--ok)} .chip.legacy,.chip.est{color:var(--warn)}
 .chip.est{border:1px dashed currentColor;background:transparent}
+.viewtog{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.viewtog button{appearance:none;border:0;background:var(--card);color:var(--ink);padding:8px 12px;font:inherit;cursor:pointer}
+.viewtog button+button{border-left:1px solid var(--line)}
+.viewtog button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.viewtog button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.added{margin:0;font-size:.8rem;color:var(--muted)}
+.card.fresh{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);background:linear-gradient(var(--hl),var(--hl)),var(--card)}
+.card.fresh .added{color:var(--accent);font-weight:700}
+.list{display:flex;flex-direction:column;gap:8px}
+.list .card{flex-direction:row;align-items:center}
+.list .media{flex:0 0 132px;width:132px}
+.list .thumbs{display:none}
+.list .body{flex:1;min-width:0;padding:8px 12px;gap:3px}
+.list .name{font-size:.95rem}
+@media (max-width:520px){.list .media{flex-basis:96px;width:96px}}
 .empty{padding:40px 0;text-align:center;color:var(--muted)}
 footer{padding-top:18px;padding-bottom:36px;color:var(--muted);font-size:.82rem}
 footer a{color:inherit}
@@ -67,6 +82,14 @@ footer a{color:inherit}
     <select id="f-group" aria-label="Category"></select>
     <select id="f-class" aria-label="Car class"></select>
     <select id="f-rain" aria-label="Rain"></select>
+    <select id="f-sort" aria-label="Sort">
+      <option value="name">Sort: name</option>
+      <option value="added">Sort: recently added</option>
+    </select>
+    <div class="viewtog" role="group" aria-label="View">
+      <button type="button" id="v-grid" aria-pressed="true">Thumbnails</button>
+      <button type="button" id="v-list" aria-pressed="false">List</button>
+    </div>
     <label class="chk"><input type="checkbox" id="f-legacy"> Hide legacy</label>
     <label class="chk"><input type="checkbox" id="f-removed"> Show removed</label>
   </div>
@@ -84,7 +107,7 @@ footer a{color:inherit}
   "use strict";
   var D = window.AI_DATA || { meta: {}, cars: [], tracks: [] };
   var $ = function (id) { return document.getElementById(id); };
-  var S = { tab: "cars", ai: "yes", q: "", surface: "", group: "", klass: "", rain: "", hideLegacy: false, showRemoved: false };
+  var S = { tab: "cars", ai: "yes", view: "grid", sort: "name", q: "", surface: "", group: "", klass: "", rain: "", hideLegacy: false, showRemoved: false };
 
   function el(tag, cls, text) {
     var e = document.createElement(tag);
@@ -125,6 +148,15 @@ footer a{color:inherit}
 
   function rows() { return S.tab === "cars" ? D.cars : D.tracks; }
 
+  // ISO date (YYYY-MM-DD) -> M/D/YYYY without any time-zone conversion
+  function fmtDate(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || "");
+    return m ? (+m[2]) + "/" + (+m[3]) + "/" + m[1] : "";
+  }
+  // The highlight marks the newest "added" date across cars and tracks; it moves on when newer items arrive.
+  var LATEST = "";
+  D.cars.concat(D.tracks).forEach(function (r) { if (r.ai_added && r.ai_added > LATEST) LATEST = r.ai_added; });
+
   function matches(r) {
     var isCar = S.tab === "cars";
     if (r.status !== "active" && !S.showRemoved) return false;
@@ -144,7 +176,8 @@ footer a{color:inherit}
 
   function card(r) {
     var isCar = S.tab === "cars";
-    var c = el("article", "card" + (r.status !== "active" ? " removed" : ""));
+    var fresh = !!(r.ai_added && r.ai_added === LATEST);
+    var c = el("article", "card" + (r.status !== "active" ? " removed" : "") + (fresh ? " fresh" : ""));
     var media = el("div", "media");
     var imgs = isCar ? (r.images || []) : (r.image ? [r.image] : []);
     var remote = !imgs.length && r.image_url;  // fallback: iRacing's own thumbnail until the local copy exists
@@ -178,11 +211,18 @@ footer a{color:inherit}
       a.style.color = "inherit"; a.title = "Open on iracing.com"; h.appendChild(a);
     } else { h.textContent = r.name; }
     body.appendChild(h);
+    if (r.ai_added) {
+      var ad = el("p", "added", "Added " + fmtDate(r.ai_added));
+      ad.title = r.ai_added_src === "detected"
+        ? "Date this page first noticed the item on iRacing's AI list"
+        : "Date from iRacing's release notes";
+      body.appendChild(ad);
+    }
     if (!isCar && r.configs) body.appendChild(el("p", "cfg", r.configs));
     var chips = el("div", "chips");
     chips.appendChild(r.ai_enabled === "yes" ? chip("AI", "rain", "Listed on iRacing's AI Content Available page")
                                              : chip("No AI", "legacy", "Not on iRacing's AI Content Available pages"));
-    if (r.site_label) chips.appendChild(chip(r.site_label, null, "Label on iracing.com"));
+    if (r.site_label) chips.appendChild(chip("iRacing: " + r.site_label, null, "Label shown on iracing.com"));
     var dirtGroup = (isCar ? r.category : r.track_type) === "Dirt Oval";
     if (!dirtGroup && (r.surface === "dirt" || r.surface === "asphalt")) chips.appendChild(chip(r.surface === "dirt" ? "Dirt" : "Asphalt"));
     if (isCar) {
@@ -227,6 +267,10 @@ footer a{color:inherit}
 
   function render() {
     var list = rows().filter(matches).sort(function (a, b) {
+      if (S.sort === "added") {
+        var da = a.ai_added || "", db = b.ai_added || "";
+        if (da !== db) return da < db ? 1 : -1;   // newest first, undated last
+      }
       return a.name.localeCompare(b.name) || a.legacy.localeCompare(b.legacy);
     });
     var active = rows().filter(function (r) { return r.status === "active"; }).length;
@@ -235,6 +279,7 @@ footer a{color:inherit}
     $("tab-tracks").textContent = "Tracks (" + D.tracks.filter(function (r) { return r.status === "active"; }).length + ")";
     $("count").textContent = "Showing " + list.length + " of " + active + " " + S.tab + " (" + aiN + " AI-enabled)";
     var grid = $("grid");
+    grid.className = S.view === "list" ? "list" : "grid";
     grid.textContent = "";
     if (!list.length) { grid.appendChild(el("div", "empty", "Nothing matches these filters.")); return; }
     var frag = document.createDocumentFragment();
@@ -253,6 +298,16 @@ footer a{color:inherit}
   $("tab-cars").addEventListener("click", function () { setTab("cars"); });
   $("tab-tracks").addEventListener("click", function () { setTab("tracks"); });
   $("q").addEventListener("input", function (e) { S.q = e.target.value.trim().toLowerCase(); render(); });
+  function setView(v) {
+    S.view = v === "list" ? "list" : "grid";
+    $("v-grid").setAttribute("aria-pressed", String(S.view === "grid"));
+    $("v-list").setAttribute("aria-pressed", String(S.view === "list"));
+    try { localStorage.setItem("iracing-view", S.view); } catch (e) { /* storage may be blocked */ }
+    render();
+  }
+  $("v-grid").addEventListener("click", function () { setView("grid"); });
+  $("v-list").addEventListener("click", function () { setView("list"); });
+  $("f-sort").addEventListener("change", function (e) { S.sort = e.target.value; render(); });
   $("f-ai").addEventListener("change", function (e) { S.ai = e.target.value; render(); });
   $("f-surface").addEventListener("change", function (e) { S.surface = e.target.value; render(); });
   $("f-group").addEventListener("change", function (e) { S.group = e.target.value; render(); });
@@ -269,6 +324,9 @@ footer a{color:inherit}
     "iracing.com/cars and /tracks for the catalog, car categories and thumbnails (images belong to iRacing). " +
     "Car class and track type are not published there; labels marked \"estimated\" are rule-of-thumb guesses. " +
     "Not affiliated with iRacing.";
+  try { if (localStorage.getItem("iracing-view") === "list") { S.view = "list"; } } catch (e) { /* ignore */ }
+  $("v-grid").setAttribute("aria-pressed", String(S.view === "grid"));
+  $("v-list").setAttribute("aria-pressed", String(S.view === "list"));
   setTab("cars");
 })();
 </script>

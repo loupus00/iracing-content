@@ -21,6 +21,19 @@ from any device.
 Not-AI rows have `surface = unknown` unless iRacing's category says Dirt Oval (cars) or the name says "Dirt"
 (tracks); the sources do not state a surface for them, so none is guessed. `rain` is `unknown` for them.
 
+### "Added" dates and the highlight
+
+Each AI row can carry `ai_added` (the date it joined iRacing's AI list) and `ai_added_src`:
+- `release notes`: dates typed into `data/overrides/added.csv` (`id,ai_added,source`). The 9/9/2026 Season 4
+  items came from iRacing's "2026 Season 4 Initial Release Notes".
+- `detected`: set by the update script to the day it first noticed a new AI item. iRacing's pages carry no dates,
+  so this is the day *this script saw it*, which can lag the real date by up to a week.
+- Items that were already AI-enabled when tracking began (2026-10-29) have no date and show none.
+
+The viewer highlights every row whose `ai_added` equals the newest date found across cars and tracks. When a
+newer batch appears, the older batch loses its highlight and keeps its "Added M/D/YYYY" line. Track dates apply
+to the whole track row, even when iRacing only added some configs (for example Auto Club, Kansas).
+
 ### Name matching (AI list <-> iracing.com)
 
 The two sources spell names differently ("Next Gen NASCAR Cup Series Chevrolet Camaro ZL1" vs

@@ -19,10 +19,10 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 IMAGES = ROOT / "images"
 
-CAR_FIELDS = ["id", "name", "surface", "legacy", "rain", "ai_enabled", "category", "category_source",
+CAR_FIELDS = ["id", "name", "surface", "legacy", "rain", "ai_enabled", "ai_added", "ai_added_src", "category", "category_source",
               "car_class", "meta_source", "images", "image_url", "detail_url", "site_name", "site_label",
               "status", "first_seen", "removed_on"]
-TRACK_FIELDS = ["id", "name", "surface", "legacy", "configs", "rain", "ai_enabled", "track_type",
+TRACK_FIELDS = ["id", "name", "surface", "legacy", "configs", "rain", "ai_enabled", "ai_added", "ai_added_src", "track_type",
                 "meta_source", "image", "image_url", "detail_url", "site_name", "site_label",
                 "status", "first_seen", "removed_on"]
 FIELDS = {"cars": CAR_FIELDS, "tracks": TRACK_FIELDS}
@@ -261,6 +261,19 @@ def apply_overrides(rows: list[dict], path: Path, fields: list[str]) -> None:
                 r["category_source"] = "override"
 
 
+def apply_added(rows: list[dict], path: Path) -> None:
+    """data/overrides/added.csv: id, ai_added (YYYY-MM-DD), source. Dates known from iRacing's
+    release notes; the script itself can only record the day it first noticed a new item."""
+    if not path.exists():
+        return
+    with open(path, newline="", encoding="utf-8-sig") as f:
+        known = {r["id"]: r for r in csv.DictReader(f) if r.get("id") and clean(r.get("ai_added", ""))}
+    for r in rows:
+        k = known.get(r["id"])
+        if k and r["ai_enabled"] == "yes":
+            r["ai_added"], r["ai_added_src"] = clean(k["ai_added"]), clean(k.get("source", "")) or "release notes"
+
+
 def attach_images(cars: list[dict], tracks: list[dict]) -> None:
     """Images are found by file name: cars/<id>__1.jpg, __2.jpg ...; tracks/<id>.jpg."""
     exts = {".jpg", ".jpeg", ".png", ".webp"}
@@ -287,6 +300,7 @@ def merge(existing: list[dict], parsed: list[dict], kind: str, today: str):
     """
     fields, src = FIELDS[kind], SOURCE_FIELDS[kind]
     old = {r["id"]: r for r in existing}
+    baseline = bool(existing)  # on the very first build nothing is "newly added"
     seen: set[str] = set()
     out: list[dict] = []
     log = {"added to AI list": [], "removed from AI list": [], "back on AI list": [], "changed": []}
@@ -300,11 +314,14 @@ def merge(existing: list[dict], parsed: list[dict], kind: str, today: str):
             r = {f: "" for f in fields}
             r.update({k: p[k] for k in src})
             r["id"], r["ai_enabled"], r["status"], r["first_seen"] = pid, "yes", "active", today
+            if baseline:
+                r["ai_added"], r["ai_added_src"] = today, "detected"
             estimate(r, kind)
             log["added to AI list"].append(label(r))
         else:
             if r["ai_enabled"] != "yes":
                 r["ai_enabled"], r["status"], r["removed_on"] = "yes", "active", ""
+                r["ai_added"], r["ai_added_src"] = today, "detected"
                 log["back on AI list"].append(label(r))
             for f in src:
                 if r[f] != p[f]:
@@ -458,6 +475,8 @@ def run_update(asphalt_rows, dirt_rows, page_modified: dict, today: str | None =
             keep = [r for r in old[k] if r["id"].startswith("site-")]
             new[k] = new[k] + keep
             unmatched[k] = []
+    apply_added(new["cars"], DATA / "overrides" / "added.csv")
+    apply_added(new["tracks"], DATA / "overrides" / "added.csv")
     apply_overrides(new["cars"], DATA / "overrides" / "cars.csv", ["category", "car_class"])
     apply_overrides(new["tracks"], DATA / "overrides" / "tracks.csv", ["track_type"])
     attach_images(new["cars"], new["tracks"])
