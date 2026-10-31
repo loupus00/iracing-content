@@ -31,7 +31,7 @@ def main():
                 d[f] = str(round(n)) if n is not None and f in ("hp", "kg", "lbs") else v
                 d[f + "_src"] = "sheet"
         for f in ("engine", "year", "wiki_type", "difficulty", "bio", "wiki_title"):
-            if w.get(f): d[f] = w[f]
+            if w.get(f): d[f] = w[f].rstrip(": ").strip()
         hp, kg = num(d.get("hp")), num(d.get("kg"))
         if hp and kg: d["kg_per_hp"] = "%.2f" % (kg / hp)
         if c["id"] in rel: d["released"] = rel[c["id"]]["released"]
