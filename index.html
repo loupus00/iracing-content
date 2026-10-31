@@ -62,6 +62,11 @@ h1{margin:0;font-size:1.5rem;letter-spacing:-.01em}
 .list .body{flex:1;min-width:0;padding:8px 12px;gap:3px}
 .list .name{font-size:.95rem}
 @media (max-width:520px){.list .media{flex-basis:96px;width:96px}}
+.specs{display:none;margin:0}
+.list .specs{display:grid;flex:0 0 46%;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:4px 14px;padding:8px 14px;font-size:.78rem;align-self:stretch;align-content:center;border-left:1px solid var(--line)}
+.list .specs dt{color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.03em}
+.list .specs dd{margin:0;font-weight:600;overflow-wrap:anywhere}
+@media (max-width:800px){.list .card{flex-wrap:wrap}.list .specs{flex-basis:100%;border-left:0;border-top:1px solid var(--line)}}
 .empty{padding:40px 0;text-align:center;color:var(--muted)}
 footer{padding-top:18px;padding-bottom:36px;color:var(--muted);font-size:.82rem}
 footer a{color:inherit}
@@ -69,10 +74,14 @@ footer a{color:inherit}
 table.det{border-collapse:collapse;width:100%;font-size:.86rem}
 table.det th,table.det td{padding:6px 10px;border-bottom:1px solid rgba(128,128,128,.25);text-align:left;white-space:nowrap}
 table.det td.num,table.det th.num{text-align:right;font-variant-numeric:tabular-nums}
-table.det th{position:sticky;top:0;background:var(--bg,#fff);cursor:pointer;user-select:none;z-index:1}
+table.det th{position:sticky;top:0;background:var(--card);cursor:pointer;user-select:none;z-index:2}
+table.det .namecol{position:sticky;left:0;white-space:normal;min-width:120px;max-width:170px;background:var(--card);z-index:1;border-right:1px solid var(--line)}
+table.det th.namecol{z-index:3}
+table.det tr.fresh td.namecol{background:linear-gradient(var(--hl),var(--hl)),var(--card)}
+table.det .wrapcol{white-space:normal;min-width:120px;max-width:200px}
 table.det th[aria-sort="ascending"]::after{content:" \25B2";font-size:.7em}
 table.det th[aria-sort="descending"]::after{content:" \25BC";font-size:.7em}
-table.det tr.fresh td{background:rgba(255,200,0,.14)}
+table.det tr.fresh td{background:var(--hl)}
 table.det td.bio{white-space:normal;min-width:260px;max-width:520px;color:var(--muted)}
 table.det button.bio-t{background:none;border:0;color:inherit;cursor:pointer;text-decoration:underline;padding:0;font:inherit}
 table.det .sheet{color:var(--muted)}
@@ -95,7 +104,7 @@ table.det .sheet{color:var(--muted)}
     <select id="f-rain" aria-label="Rain"></select>
     <select id="f-sort" aria-label="Sort">
       <option value="name">Sort: name</option>
-      <option value="added">Sort: recently added</option>
+      <option value="added">Sort: recently AI added</option>
     </select>
     <div class="viewtog" role="group" aria-label="View">
       <button type="button" id="v-grid" aria-pressed="true">Thumbnails</button>
@@ -182,10 +191,26 @@ table.det .sheet{color:var(--muted)}
     if (S.rain === "yes" && !rainFlag(r, isCar)) return false;
     if (S.rain === "no" && (rainFlag(r, isCar) || !rainKnown(r))) return false;
     if (S.q) {
-      var hay = [r.name, r.site_name, r.category, r.car_class, r.track_type, r.configs].join(" ").toLowerCase();
+      var xx = (isCar ? X.cars : X.tracks)[r.id] || {};
+      var hay = [r.name, r.site_name, r.category, r.car_class, r.track_type, r.configs, xx.location, xx.country, xx.engine].join(" ").toLowerCase();
       if (hay.indexOf(S.q) === -1) return false;
     }
     return true;
+  }
+
+  function specsBlock(r, isCar) {
+    var x = (isCar ? X.cars : X.tracks)[r.id] || {};
+    var box = el("dl", "specs");
+    var items = isCar
+      ? [["MY", x.year], ["HP", x.hp], ["kg", x.kg], ["Drive", x.drivetrain], ["Engine loc", x.engine_loc], ["Trans", x.transmission],
+         ["Engine", x.engine], ["Released", fmtDate(x.released)], ["Updated", fmtDate(x.updated)]]
+      : [["Location", x.location], ["Country", x.country], ["Length mi", x.length_mi], ["Length km", x.length_km], ["Turns", x.turns],
+         ["Pit mph", x.pit_speed], ["Released", fmtDate(x.released)], ["Updated", fmtDate(x.updated)]];
+    items.forEach(function (it) {
+      if (!it[1]) return;
+      var d = el("div"); d.appendChild(el("dt", null, it[0])); d.appendChild(el("dd", null, it[1])); box.appendChild(d);
+    });
+    return box;
   }
 
   function card(r) {
@@ -226,12 +251,14 @@ table.det .sheet{color:var(--muted)}
     } else { h.textContent = r.name; }
     body.appendChild(h);
     if (r.ai_added) {
-      var ad = el("p", "added", "Added " + fmtDate(r.ai_added));
+      var ad = el("p", "added", "AI added " + fmtDate(r.ai_added));
       ad.title = r.ai_added_src === "detected"
         ? "Date this page first noticed the item on iRacing's AI list"
         : "Date from iRacing's release notes";
       body.appendChild(ad);
     }
+    var xu = (isCar ? X.cars : X.tracks)[r.id] || {};
+    if (xu.updated) body.appendChild(el("p", "added", "Updated " + fmtDate(xu.updated)));
     if (!isCar && r.configs) body.appendChild(el("p", "cfg", r.configs));
     var chips = el("div", "chips");
     chips.appendChild(r.ai_enabled === "yes" ? chip("AI", "rain", "Listed on iRacing's AI Content Available page")
@@ -255,6 +282,7 @@ table.det .sheet{color:var(--muted)}
     }
     body.appendChild(chips);
     c.appendChild(body);
+    c.appendChild(specsBlock(r, isCar));
     return c;
   }
 
@@ -266,7 +294,7 @@ table.det .sheet{color:var(--muted)}
       var o = el("option", null, p[1]); o.value = p[0]; ai.appendChild(o);
     });
     ai.value = S.ai;
-    fill($("f-surface"), "All surfaces", uniq(list.map(function (r) { return r.surface; })));
+    fill($("f-surface"), "All surfaces", uniq(list.map(function (r) { return r.surface; })).filter(function (v) { return v !== "unknown"; }));
     fill($("f-group"), isCar ? "All categories" : "All track types",
          uniq(list.map(function (r) { return isCar ? r.category : r.track_type; })));
     fill($("f-class"), "All classes", uniq(list.map(function (r) { return r.car_class; })));
@@ -281,17 +309,18 @@ table.det .sheet{color:var(--muted)}
 
   // ---- Details table ----
   function first(v) { var m = /[\d.]+/.exec(String(v || "")); return m ? parseFloat(m[0]) : null; }
+  // [key, header, kind (t=text, n=number, d=date, b=bio), css class]
   var CAR_COLS = [
-    ["name", "Name", "t"], ["ai", "AI", "t"], ["added", "Added", "d"], ["category", "Category", "t"], ["car_class", "Class", "t"],
-    ["year", "Year", "n"], ["hp", "HP", "n"], ["kg", "kg", "n"], ["lbs", "lbs", "n"], ["kg_per_hp", "kg/HP", "n"],
-    ["drivetrain", "Drive", "t"], ["engine_loc", "Engine loc", "t"], ["transmission", "Transmission", "t"], ["engine", "Engine", "t"],
-    ["difficulty", "Difficulty", "t"], ["price_usd", "Price $", "n"], ["bio", "Description", "b"]
+    ["name", "Name", "t", "namecol"], ["ai", "AI", "t"], ["added", "AI Added", "d"], ["released", "Released", "d"], ["updated", "Updated", "d"],
+    ["category", "Category", "t"], ["car_class", "Class", "t", "wrapcol"], ["year", "MY", "n"], ["hp", "HP", "n"], ["kg", "kg", "n"],
+    ["lbs", "lbs", "n"], ["kg_per_hp", "kg/HP", "n"], ["drivetrain", "Drive", "t"], ["engine_loc", "Engine loc", "t"],
+    ["transmission", "Transmission", "t"], ["engine", "Engine", "t", "wrapcol"], ["difficulty", "Difficulty", "t"], ["bio", "Description", "b"]
   ];
   var TRACK_COLS = [
-    ["name", "Name", "t"], ["ai", "AI", "t"], ["added", "Added", "d"], ["surface", "Surface", "t"], ["track_type", "Type", "t"],
-    ["location", "Location", "t"], ["length_mi", "Length mi", "n"], ["length_km", "km", "n"], ["turns", "Turns", "n"],
-    ["configs_n", "Configs", "n"], ["pit_speed", "Pit mph", "n"], ["opened", "Opened", "n"], ["difficulty", "Difficulty", "t"],
-    ["price_usd", "Price $", "n"], ["bio", "Description", "b"]
+    ["name", "Name", "t", "namecol"], ["ai", "AI", "t"], ["added", "AI Added", "d"], ["released", "Released", "d"], ["updated", "Updated", "d"],
+    ["surface", "Surface", "t"], ["track_type", "Type", "t", "wrapcol"], ["location", "Location", "t", "wrapcol"], ["country", "Country", "t"],
+    ["length_mi", "Length (miles)", "n"], ["length_km", "Length (km)", "n"], ["turns", "# of turns", "n"],
+    ["configs_n", "Configs", "n"], ["pit_speed", "Pit mph", "n"], ["opened", "Real-world opened", "n"], ["difficulty", "Difficulty", "t"], ["bio", "Bio", "b"]
   ];
   function cellVal(r, key, isCar) {
     var x = (isCar ? X.cars : X.tracks)[r.id] || {};
@@ -324,7 +353,7 @@ table.det .sheet{color:var(--muted)}
     });
     var wrap = el("div", "dwrap"), t = el("table", "det"), hr = el("tr");
     cols.forEach(function (c) {
-      var th = el("th", c[2] === "n" ? "num" : "", c[1]);
+      var th = el("th", (c[2] === "n" ? "num " : "") + (c[3] || ""), c[1]);
       if (c[2] !== "b") {
         th.tabIndex = 0; th.setAttribute("role", "columnheader");
         if (c[0] === S.dsort.key) th.setAttribute("aria-sort", S.dsort.dir === 1 ? "ascending" : "descending");
@@ -342,7 +371,7 @@ table.det .sheet{color:var(--muted)}
       cols.forEach(function (c) {
         var v = cellVal(r, c[0], isCar), td;
         if (c[0] === "name") {
-          td = el("td");
+          td = el("td", "namecol");
           if (r.detail_url) { var a = el("a", null, v); a.href = r.detail_url; a.target = "_blank"; a.rel = "noopener"; a.style.color = "inherit"; td.appendChild(a); }
           else td.textContent = v;
           if (r.legacy === "yes") td.appendChild(chip("Legacy", "legacy"));
@@ -360,8 +389,9 @@ table.det .sheet{color:var(--muted)}
           }
         } else if (c[2] === "d") {
           td = el("td", "", fmtDate(v));
+          if (c[0] === "updated" && x.updated) td.title = "First/last listed as updated in the release notes";
         } else {
-          td = el("td", c[2] === "n" ? "num" : "", v);
+          td = el("td", (c[2] === "n" ? "num " : "") + (c[3] || ""), v);
           if (c[2] === "n" && x[c[0] + "_src"] === "sheet") { td.classList.add("sheet"); td.title = "From your spreadsheet (not on the wiki page)"; td.textContent = v + "*"; }
           if (c[0] === "car_class" && v && r.meta_source === "estimate") { td.title = "Estimated class"; td.textContent = v + "?"; }
         }
@@ -372,7 +402,7 @@ table.det .sheet{color:var(--muted)}
     t.appendChild(tb); wrap.appendChild(t); grid.appendChild(wrap);
     var have = rowsV.filter(function (r) { return (isCar ? X.cars : X.tracks)[r.id]; }).length;
     grid.appendChild(el("p", "cfg", "Specs for " + have + " of " + rowsV.length + " shown. Blank = not on the wiki page. " +
-      "* = from the spreadsheet; ? = estimated class. Click a header to sort; blanks sort last."));
+      "* = from the spreadsheet; ? = class is a rule-of-thumb guess. Released = first season's release notes that list it as new (blank when unknown, and for anything older than late 2017). Model yr and Real-world opened are real-life dates, not iRacing release dates. Click a header to sort; blanks sort last."));
   }
 
   function render() {

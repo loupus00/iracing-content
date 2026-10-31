@@ -54,7 +54,7 @@ which `scripts/build_details.py` builds from `data/overrides/`:
 
 | Source | Fields | Notes |
 |---|---|---|
-| iRacing Wiki on Fandom (`car_specs_wiki.csv`, `track_specs_wiki.csv`) | HP, kg, lbs, engine, engine location, drivetrain, transmission, year, difficulty, price, description; for tracks location, length, turns, configs, pit speed, opened, difficulty, price, description | Community-written. **Wiki wins over the spreadsheet.** HP is the wiki's figure (for hybrids, combined output), which may not equal the sim's own value. |
+| iRacing Wiki on Fandom (`car_specs_wiki.csv`, `track_specs_wiki.csv`) | HP, kg, lbs, engine, engine location, drivetrain, transmission, year, difficulty, description; for tracks location, country, length, turns, configs, pit speed, opened, difficulty, bio | Community-written. **Wiki wins over the spreadsheet.** HP is the wiki's figure (for hybrids, combined output), which may not equal the sim's own value. |
 | Your spreadsheet (`car_specs.csv`) | Fills HP/kg/lbs/gears only where the wiki is blank; shown with `*` | Out of date in places |
 
 Refreshing the wiki data is manual: Fandom blocks scripts, so export the pages in a browser

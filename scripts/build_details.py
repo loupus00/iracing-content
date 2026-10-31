@@ -19,6 +19,7 @@ def num(s):
 
 def main():
     wiki, sheet, twiki = rd("car_specs_wiki.csv"), rd("car_specs.csv"), rd("track_specs_wiki.csv")
+    rel, upd = rd("released.csv"), rd("updated.csv")
     out = {"cars": {}, "tracks": {}}
     for c in csv.DictReader(open(D / "cars.csv", encoding="utf-8-sig")):
         w, s = wiki.get(c["id"], {}), sheet.get(c["id"], {})
@@ -29,16 +30,25 @@ def main():
                 v = s[f]; n = num(v)
                 d[f] = str(round(n)) if n is not None and f in ("hp", "kg", "lbs") else v
                 d[f + "_src"] = "sheet"
-        for f in ("engine", "year", "wiki_type", "difficulty", "price_usd", "bio", "wiki_title"):
+        for f in ("engine", "year", "wiki_type", "difficulty", "bio", "wiki_title"):
             if w.get(f): d[f] = w[f]
         hp, kg = num(d.get("hp")), num(d.get("kg"))
         if hp and kg: d["kg_per_hp"] = "%.2f" % (kg / hp)
+        if c["id"] in rel: d["released"] = rel[c["id"]]["released"]
+        if c["id"] in upd: d["updated"] = upd[c["id"]]["updated"]
         if d: out["cars"][c["id"]] = d
     for t in csv.DictReader(open(D / "tracks.csv", encoding="utf-8-sig")):
         w = twiki.get(t["id"], {})
-        d = {f: w[f] for f in ("location", "length_mi", "length_km", "turns", "configs_n", "pit_speed", "price_usd", "owner",
+        d = {f: w[f] for f in ("location", "length_mi", "length_km", "turns", "configs_n", "pit_speed", "owner",
                                "opened", "status", "difficulty", "types", "bio", "wiki_title") if w.get(f)}
         if "status" in d: d["wiki_status"] = d.pop("status")
+        if "location" in d:   # "City, Region, Country" -> location + country
+            parts = [x.strip() for x in d["location"].split(",")]
+            if len(parts) > 1: d["country"] = parts[-1]; d["location"] = ", ".join(parts[:-1])
+            else: d["country"] = parts[0]; d["location"] = ""
+            if not d["location"]: del d["location"]
+        if t["id"] in rel: d["released"] = rel[t["id"]]["released"]
+        if t["id"] in upd: d["updated"] = upd[t["id"]]["updated"]
         if d: out["tracks"][t["id"]] = d
     out["credit"] = "Specs and descriptions: iRacing Wiki (iracing.fandom.com), community-written."
     (D / "details.js").write_text("window.DETAILS = " + json.dumps(out, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
