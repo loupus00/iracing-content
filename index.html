@@ -86,6 +86,8 @@ table.det td.bio{white-space:normal;min-width:260px;max-width:520px;color:var(--
 table.det button.bio-t{background:none;border:0;color:inherit;cursor:pointer;text-decoration:underline;padding:0;font:inherit}
 table.det .sheet{color:var(--muted)}
 </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
 </head>
 <body>
 <header>
@@ -172,6 +174,14 @@ table.det .sheet{color:var(--muted)}
   // Car class = the "Type" on the car's iRacing Wiki page (blank when the car has no wiki page).
   function classOf(r) { return ((X.cars || {})[r.id] || {}).wiki_type || ""; }
 
+  // Track type = layout tags from the iRacing Wiki, e.g. "Road Course; Oval; Roval; Intermediate".
+  function trackTypes(r) {
+    var v = ((X.tracks || {})[r.id] || {}).track_type || "";
+    return v ? v.split("; ") : [];
+  }
+  // Values for the "category / type" filter: car category, or each individual track type tag
+  function groupVals(r, isCar) { return isCar ? [r.category] : trackTypes(r); }
+
   function rows() { return S.tab === "cars" ? D.cars : D.tracks; }
 
   // ISO date (YYYY-MM-DD) -> M/D/YYYY without any time-zone conversion
@@ -189,13 +199,13 @@ table.det .sheet{color:var(--muted)}
     if (S.ai && r.ai_enabled !== S.ai) return false;
     if (S.hideLegacy && r.legacy === "yes") return false;
     if (S.surface && r.surface !== S.surface) return false;
-    if (S.group && (isCar ? r.category : r.track_type) !== S.group) return false;
+    if (S.group && groupVals(r, isCar).indexOf(S.group) === -1) return false;
     if (isCar && S.klass && classOf(r) !== S.klass) return false;
     if (S.rain === "yes" && !rainFlag(r, isCar)) return false;
     if (S.rain === "no" && (rainFlag(r, isCar) || !rainKnown(r))) return false;
     if (S.q) {
       var xx = (isCar ? X.cars : X.tracks)[r.id] || {};
-      var hay = [r.name, r.site_name, r.category, classOf(r), r.track_type, r.configs, xx.location, xx.country, xx.engine].join(" ").toLowerCase();
+      var hay = [r.name, r.site_name, r.category, classOf(r), trackTypes(r).join(" "), r.configs, xx.location, xx.country, xx.engine].join(" ").toLowerCase();
       if (hay.indexOf(S.q) === -1) return false;
     }
     return true;
@@ -267,22 +277,18 @@ table.det .sheet{color:var(--muted)}
     chips.appendChild(r.ai_enabled === "yes" ? chip("AI", "rain", "Listed on iRacing's AI Content Available page")
                                              : chip("No AI", "legacy", "Not on iRacing's AI Content Available pages"));
     if (r.site_label) chips.appendChild(chip("iRacing: " + r.site_label, null, "Label shown on iracing.com"));
-    var dirtGroup = (isCar ? r.category : r.track_type) === "Dirt Oval";
+    var dirtGroup = isCar ? r.category === "Dirt Oval" : trackTypes(r).indexOf("Dirt Oval") !== -1;
     if (!dirtGroup && (r.surface === "dirt" || r.surface === "asphalt")) chips.appendChild(chip(r.surface === "dirt" ? "Dirt" : "Asphalt"));
     if (isCar) {
       if (r.category) chips.appendChild(chip(r.category));
       if (classOf(r)) chips.appendChild(chip(classOf(r)));
-    } else if (r.track_type && r.track_type !== "Unclassified") {
-      chips.appendChild(chip(r.track_type));
+    } else {
+      trackTypes(r).forEach(function (t) { chips.appendChild(chip(t)); });
     }
     var rf = rainFlag(r, isCar);
     if (rf) chips.appendChild(chip(rf, "rain"));
     if (r.legacy === "yes") chips.appendChild(chip("Legacy", "legacy"));
     if (r.status !== "active") chips.appendChild(chip("Removed " + (r.removed_on || ""), "legacy"));
-    if (!isCar && r.meta_source === "estimate") {
-      chips.appendChild(chip("type estimated", "est",
-        "Not from iRacing. A rule-of-thumb label, to be replaced by real data or a manual override."));
-    }
     body.appendChild(chips);
     c.appendChild(body);
     c.appendChild(specsBlock(r, isCar));
@@ -299,7 +305,7 @@ table.det .sheet{color:var(--muted)}
     ai.value = S.ai;
     fill($("f-surface"), "All surfaces", uniq(list.map(function (r) { return r.surface; })).filter(function (v) { return v !== "unknown"; }));
     fill($("f-group"), isCar ? "All categories" : "All track types",
-         uniq(list.map(function (r) { return isCar ? r.category : r.track_type; })));
+         uniq([].concat.apply([], list.map(function (r) { return groupVals(r, isCar); }))));
     fill($("f-class"), "All classes", uniq(list.map(classOf)));
     $("f-class").style.display = isCar ? "" : "none";
     var rain = $("f-rain");
@@ -334,7 +340,7 @@ table.det .sheet{color:var(--muted)}
       case "category": return r.category || "";
       case "car_class": return classOf(r);
       case "surface": return r.surface === "asphalt" || r.surface === "dirt" ? r.surface : "";
-      case "track_type": return r.track_type && r.track_type !== "Unclassified" ? r.track_type : "";
+      case "track_type": return trackTypes(r).join(", ");
       default: return x[key] || "";
     }
   }
@@ -468,7 +474,7 @@ table.det .sheet{color:var(--muted)}
     (pm.asphalt ? " · iRacing AI asphalt page last modified " + pm.asphalt : "");
   $("foot").textContent = "Sources: iRacing support pages \"AI Content Available\" (asphalt and dirt) for the AI flag; " +
     "iracing.com/cars and /tracks for the catalog, car categories and thumbnails (images belong to iRacing). " +
-    "Car class comes from the iRacing Wiki; track type labels marked \"estimated\" are rule-of-thumb guesses. " +
+    "Car class comes from the iRacing Wiki; track types are the wiki's layout tags. " +
     "Specs and descriptions in the Details view: iRacing Wiki (iracing.fandom.com), community-written. " +
     "Not affiliated with iRacing.";
   try { var sv = localStorage.getItem("iracing-view"); if (sv === "list" || sv === "details") { S.view = sv; } } catch (e) { /* ignore */ }
