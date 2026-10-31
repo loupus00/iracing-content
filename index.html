@@ -320,16 +320,16 @@ table.det .sheet{color:var(--muted)}
   function first(v) { var m = /[\d.]+/.exec(String(v || "")); return m ? parseFloat(m[0]) : null; }
   // [key, header, kind (t=text, n=number, d=date, b=bio), css class]
   var CAR_COLS = [
-    ["name", "Name", "t", "namecol"], ["ai", "AI", "t"], ["added", "AI Added", "d"], ["released", "Released", "d"], ["updated", "Updated", "d"],
+    ["name", "Name", "t", "namecol"],
     ["category", "Category", "t"], ["car_class", "Class", "t", "wrapcol"], ["year", "MY", "n"], ["hp", "HP", "n"], ["kg", "kg", "n"],
     ["lbs", "lbs", "n"], ["kg_per_hp", "kg/HP", "n"], ["drivetrain", "Drive", "t"], ["engine_loc", "Engine loc", "t"],
-    ["transmission", "Transmission", "t"], ["engine", "Engine", "t", "wrapcol"], ["difficulty", "Difficulty", "t"], ["bio", "Description", "b"]
+    ["transmission", "Transmission", "t"], ["engine", "Engine", "t", "wrapcol"], ["difficulty", "Difficulty", "t"], ["bio", "Description", "b"], ["ai", "AI", "t"], ["added", "AI Added", "d"], ["released", "Released", "d"], ["updated", "Updated", "d"]
   ];
   var TRACK_COLS = [
-    ["name", "Name", "t", "namecol"], ["ai", "AI", "t"], ["added", "AI Added", "d"], ["released", "Released", "d"], ["updated", "Updated", "d"],
-    ["surface", "Surface", "t"], ["track_type", "Type", "t", "wrapcol"], ["location", "Location", "t", "wrapcol"], ["country", "Country", "t"],
+    ["name", "Name", "t", "namecol"],
+    ["track_type", "Type", "t", "wrapcol"], ["surface", "Surface", "t"], ["location", "Location", "t", "wrapcol"], ["country", "Country", "t"],
     ["length_mi", "Length (miles)", "n"], ["length_km", "Length (km)", "n"], ["turns", "# of turns", "n"],
-    ["configs_n", "Configs", "n"], ["pit_speed", "Pit Limit", "n"], ["opened", "Opened", "n"], ["difficulty", "Difficulty", "t"], ["bio", "Bio", "b"]
+    ["configs_n", "Configs", "n"], ["pit_speed", "Pit Limit", "n"], ["opened", "Opened", "n"], ["difficulty", "Difficulty", "t"], ["bio", "Bio", "b"], ["ai", "AI", "t"], ["added", "AI Added", "d"], ["released", "Released", "d"], ["updated", "Updated", "d"]
   ];
   function cellVal(r, key, isCar) {
     var x = (isCar ? X.cars : X.tracks)[r.id] || {};

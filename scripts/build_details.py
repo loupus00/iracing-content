@@ -3,6 +3,7 @@
 Priority per field: iRacing wiki export (car_specs_wiki.csv / track_specs_wiki.csv), then the user's spreadsheet
 (car_specs.csv, cars only; marked with *_src = "sheet"). Blank stays blank: nothing is guessed."""
 import csv, json, re, sys
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ailists
@@ -16,6 +17,12 @@ def rd(name):
 def num(s):
     try: return float(s)
     except (TypeError, ValueError): return None
+
+def one_dec(v):
+    """'1.261-1.864' -> '1.3\u20131.9' (round half up, one decimal)."""
+    def r(x): return str(Decimal(x).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP))
+    return "\u2013".join(r(x) for x in re.findall(r"\d+(?:\.\d+)?", v))
+
 
 LEVELS = ["World Champion", "Novice", "Rookie", "Clubman", "Advanced", "Pro", "Expert"]
 
@@ -77,6 +84,8 @@ def main():
                                "opened", "status", "difficulty", "track_type", "bio", "wiki_title") if w.get(f)}
         if "status" in d: d["wiki_status"] = d.pop("status")
         clean_track(d)
+        for k in ("length_mi", "length_km"):
+            if k in d: d[k] = one_dec(d[k])
         if "location" in d:   # "City, Region, Country" -> location + country
             parts = [x.strip() for x in d["location"].split(",")]
             if len(parts) > 1: d["country"] = parts[-1]; d["location"] = ", ".join(parts[:-1])
