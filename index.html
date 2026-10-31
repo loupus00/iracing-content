@@ -218,7 +218,7 @@ table.det .sheet{color:var(--muted)}
       ? [["MY", x.year], ["HP", x.hp], ["kg", x.kg], ["Drive", x.drivetrain], ["Engine loc", x.engine_loc], ["Trans", x.transmission],
          ["Engine", x.engine], ["Released", fmtDate(x.released)], ["Updated", fmtDate(x.updated)]]
       : [["Location", x.location], ["Country", x.country], ["Length mi", x.length_mi], ["Length km", x.length_km], ["Turns", x.turns],
-         ["Pit mph", x.pit_speed], ["Released", fmtDate(x.released)], ["Updated", fmtDate(x.updated)]];
+         ["Pit limit", x.pit_speed], ["Released", fmtDate(x.released)], ["Updated", fmtDate(x.updated)]];
     items.forEach(function (it) {
       if (!it[1]) return;
       var d = el("div"); d.appendChild(el("dt", null, it[0])); d.appendChild(el("dd", null, it[1])); box.appendChild(d);
@@ -329,7 +329,7 @@ table.det .sheet{color:var(--muted)}
     ["name", "Name", "t", "namecol"], ["ai", "AI", "t"], ["added", "AI Added", "d"], ["released", "Released", "d"], ["updated", "Updated", "d"],
     ["surface", "Surface", "t"], ["track_type", "Type", "t", "wrapcol"], ["location", "Location", "t", "wrapcol"], ["country", "Country", "t"],
     ["length_mi", "Length (miles)", "n"], ["length_km", "Length (km)", "n"], ["turns", "# of turns", "n"],
-    ["configs_n", "Configs", "n"], ["pit_speed", "Pit mph", "n"], ["opened", "Real-world opened", "n"], ["difficulty", "Difficulty", "t"], ["bio", "Bio", "b"]
+    ["configs_n", "Configs", "n"], ["pit_speed", "Pit Limit", "n"], ["opened", "Opened", "n"], ["difficulty", "Difficulty", "t"], ["bio", "Bio", "b"]
   ];
   function cellVal(r, key, isCar) {
     var x = (isCar ? X.cars : X.tracks)[r.id] || {};
@@ -410,7 +410,7 @@ table.det .sheet{color:var(--muted)}
     t.appendChild(tb); wrap.appendChild(t); grid.appendChild(wrap);
     var have = rowsV.filter(function (r) { return (isCar ? X.cars : X.tracks)[r.id]; }).length;
     grid.appendChild(el("p", "cfg", "Specs for " + have + " of " + rowsV.length + " shown. Blank = not on the wiki page. " +
-      "* = from the spreadsheet. Class = the \"Type\" on the iRacing Wiki page. Released = first season's release notes that list it as new (blank when unknown, and for anything older than late 2017). Model yr and Real-world opened are real-life dates, not iRacing release dates. Click a header to sort; blanks sort last."));
+      "* = from the spreadsheet. Class = the \"Type\" on the iRacing Wiki page. Released = first season's release notes that list it as new (blank when unknown, and for anything older than late 2017). MY (model year) and Opened (year) are real-life dates, not iRacing release dates. Click a header to sort; blanks sort last."));
   }
 
   function render() {

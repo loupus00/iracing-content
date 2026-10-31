@@ -2,7 +2,7 @@
 """Merge spec sources into data/details.js (window.DETAILS) for the viewer's Details table.
 Priority per field: iRacing wiki export (car_specs_wiki.csv / track_specs_wiki.csv), then the user's spreadsheet
 (car_specs.csv, cars only; marked with *_src = "sheet"). Blank stays blank: nothing is guessed."""
-import csv, json, sys
+import csv, json, re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ailists
@@ -16,6 +16,40 @@ def rd(name):
 def num(s):
     try: return float(s)
     except (TypeError, ValueError): return None
+
+LEVELS = ["World Champion", "Novice", "Rookie", "Clubman", "Advanced", "Pro", "Expert"]
+
+
+def clean_track(d):
+    """The wiki infobox sometimes runs fields together; keep only each field's own value."""
+    loc = d.get("location", "")
+    m = re.search(r"\s*(?:\u2022|Length:)", loc)
+    if m:   # location swallowed the neighbouring infobox rows; recover what they held
+        tail, d["location"] = loc[m.start():], loc[:m.start()].strip()
+        g = re.search(r"Length:\s*([\d.]+)(?:\s*to\s*([\d.]+))?\s*Miles\s*\(([\d.]+)(?:\s*to\s*([\d.]+))?\s*km\)", tail)
+        if g and "length_mi" not in d:
+            d["length_mi"] = "%s-%s" % (g.group(1), g.group(2)) if g.group(2) else g.group(1)
+            d["length_km"] = "%s-%s" % (g.group(3), g.group(4)) if g.group(4) else g.group(3)
+        g = re.search(r"Turns:\s*([\d]+(?:\s*[-\u2013]\s*\d+)?)", tail)
+        if g and "turns" not in d: d["turns"] = g.group(1)
+        g = re.search(r"Configurations:\s*(\d+)", tail)
+        if g and "configs_n" not in d: d["configs_n"] = g.group(1)
+        g = re.search(r"Pit Road Speed:\s*(.+?)\s*(?:\u2022|Price:|$)", tail)
+        if g and "pit_speed" not in d: d["pit_speed"] = g.group(1)
+    if "location" in d:   # "Benalla, Victoria, AustraliaLength: ..." (no bullet)
+        d["location"] = re.sub(r"(?<=[a-z])(?:Length|Turns|Nickname|Nationality|Type):.*$", "", d["location"]).strip()
+    if "pit_speed" in d:   # "20 mph (32 kmh) to 35 mph (56 kmh) Price: ..." -> "20-35"
+        n = re.findall(r"(\d+)\s*mph", d["pit_speed"])
+        if n: d["pit_speed"] = (n[0] if len(set(n)) == 1 else "%s\u2013%s" % (n[0], n[-1])) + " mph"
+        else: del d["pit_speed"]
+    if "difficulty" in d:
+        lv = [l for l in LEVELS if d["difficulty"].startswith(l)]
+        if lv: d["difficulty"] = lv[0]
+    if "opened" in d:      # keep the first year; closures and re-openings stay on the wiki
+        y = re.search(r"\d{4}", d["opened"])
+        if y: d["opened"] = y.group(0)
+        else: del d["opened"]
+
 
 def main():
     wiki, sheet, twiki = rd("car_specs_wiki.csv"), rd("car_specs.csv"), rd("track_specs_wiki.csv")
@@ -31,7 +65,7 @@ def main():
                 d[f] = str(round(n)) if n is not None and f in ("hp", "kg", "lbs") else v
                 d[f + "_src"] = "sheet"
         for f in ("engine", "year", "wiki_type", "difficulty", "bio", "wiki_title"):
-            if w.get(f): d[f] = w[f].rstrip(": ").strip()
+            if w.get(f): d[f] = re.sub(r"\s+Racer$", "", w[f].rstrip(": ").strip()) if f == "wiki_type" else w[f].rstrip(": ").strip()
         hp, kg = num(d.get("hp")), num(d.get("kg"))
         if hp and kg: d["kg_per_hp"] = "%.2f" % (kg / hp)
         if c["id"] in rel: d["released"] = rel[c["id"]]["released"]
@@ -40,12 +74,14 @@ def main():
     for t in csv.DictReader(open(D / "tracks.csv", encoding="utf-8-sig")):
         w = twiki.get(t["id"], {})
         d = {f: w[f] for f in ("location", "length_mi", "length_km", "turns", "configs_n", "pit_speed", "owner",
-                               "opened", "status", "difficulty", "types", "bio", "wiki_title") if w.get(f)}
+                               "opened", "status", "difficulty", "track_type", "bio", "wiki_title") if w.get(f)}
         if "status" in d: d["wiki_status"] = d.pop("status")
+        clean_track(d)
         if "location" in d:   # "City, Region, Country" -> location + country
             parts = [x.strip() for x in d["location"].split(",")]
             if len(parts) > 1: d["country"] = parts[-1]; d["location"] = ", ".join(parts[:-1])
             else: d["country"] = parts[0]; d["location"] = ""
+            d["country"] = re.sub(r"\s*(?:Nationality|Nickname|Type):.*$", "", d["country"]).strip()
             if not d["location"]: del d["location"]
         if t["id"] in rel: d["released"] = rel[t["id"]]["released"]
         if t["id"] in upd: d["updated"] = upd[t["id"]]["updated"]
